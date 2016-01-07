@@ -1,1 +1,1 @@
-angular.module('cordvida.mobile', []);
+angular.module('cordvida.mobile', ['ionic']);

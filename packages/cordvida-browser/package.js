@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'cordvida-mobile',
+  name: 'cordvida-browser',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -13,16 +13,15 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('angular');
-  api.use('driftyco:ionic');
-
+ 
   api.addFiles([
     'client/lib/module.js',
     'client/auth/login/login.component.js',
     'client/auth/login/login.html'
-  ], 'web.cordova');
+  ], 'web.browser');
 });
-
+ 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('cordvida-mobile');
+  api.use('cordvida-browser');
 });

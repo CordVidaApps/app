@@ -7,6 +7,8 @@ let modulesToLoad =  [
 
 if (Meteor.isCordova) {
   modulesToLoad = modulesToLoad.concat(['cordvida.mobile']);
+} else {
+  modulesToLoad = modulesToLoad.concat(['cordvida.browser']);
 }
 
 angular.module('cordvida', modulesToLoad);

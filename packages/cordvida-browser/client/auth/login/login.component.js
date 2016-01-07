@@ -1,7 +1,7 @@
-angular.module("cordvida").directive('login', function() {
+angular.module("cordvida.browser").directive('login', function() {
   return {
     restrict: 'E',
-    templateUrl: 'client/auth/login/login.html',
+    templateUrl: '/packages/cordvida-browser/client/auth/login/login.html',
     controllerAs: 'login',
     controller: function ($scope, $reactive, $state) {
       $reactive(this).attach($scope);

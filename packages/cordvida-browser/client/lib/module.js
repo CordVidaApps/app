@@ -1,0 +1,1 @@
+angular.module('cordvida.browser', []);

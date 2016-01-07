@@ -1,0 +1,15 @@
+The user your selected is:
+<p>{{userDetails.user.profile.name}}</p>
+
+<button ui-sref="users">Voltar</button>
+
+<div class="angular-google-map-container">
+  <ui-gmap-google-map center="userDetails.user.profile.maternityLocation"
+    events="userDetails.map.events" zoom="userDetails.map.zoom">
+    <ui-gmap-marker coords="userDetails.user.profile.maternityLocation" 
+      options="userDetails.map.marker.options" 
+      events="userDetails.map.marker.events" 
+      idkey="userDetails.user._id">
+    </ui-gmap-marker>
+  </ui-gmap-google-map>
+</div>

@@ -1,31 +1,34 @@
-<md-content layout="row">
-  <span flex></span>
-  <md-whiteframe layout="column" flex="50">
-    <div layout="row" layout-align="space-around center">
-      <div>Login with SMS</div>
-    </div>
-    <div ng-show="login.error" class="md-warn">
-      <small>{{ login.error }}</small>
-    </div>
-    <form layout="column" ng-show="login.isStepTwo">
-      <md-input-container>
-        <input type="text" ng-model="login.verificationCode"
-               placeholder="code"/>
-      </md-input-container>
-      <md-button class="md-raised md-primary" ng-click="login.verifyCode()"
-                 aria-label="login">Verify Code
-      </md-button>
-    </form>
-    <form layout="column" ng-show="!login.isStepTwo">
-      <md-input-container>
-        <input type="text" ng-model="login.phoneNumber"
-               placeholder="phone"/>
-      </md-input-container>
-      <md-button class="md-raised md-primary" ng-click="login.verifyPhone()"
-                 aria-label="login">Send SMS
-      </md-button>
-    </form>
+<ion-view hide-nav-bar="true">
+
+  <ion-content class="login-page" scroll="false">
     
-  </md-whiteframe>
-  <span flex></span>
-</md-content>
+    <div class="login-logo">
+      <img src="/images/logo_cordvida.jpg">
+    </div>
+    
+    <form class="card login-form">
+      <div class="item row row-center">
+        <i class="icon ion-ios-email-outline"></i>
+        <input type="email" placeholder="E-mail"
+          ng-model="login.credentials.email" required />
+      </div>
+      <div class="item row row-center">
+        <i class="icon ion-ios-locked-outline"></i>
+        <input type="password" placeholder="Senha" 
+          ng-model="login.credentials.password" required />
+      </div>
+    </form>
+
+    <div class="login-error" ng-show="error">
+      <p>{{error}}</p>
+    </div>
+
+    <div class="card login-button">
+      <div class="item">
+        <button class="button" ng-click="login.login()">Login</button>
+      </div>  
+    </div>
+
+  </ion-content>
+
+</ion-view>

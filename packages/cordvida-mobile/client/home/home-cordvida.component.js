@@ -1,7 +1,7 @@
-angular.module('cordvida').directive('homeCordvida', function () {
+angular.module('cordvida.mobile').directive('homeCordvida', function () {
   return {
     restrict: 'E',
-    templateUrl: 'client/home/home-cordvida.html',
+    templateUrl: '/packages/cordvida-mobile/client/home/home-cordvida.html',
     controllerAs: 'homeCordvida',
     controller: function ($scope, $reactive, $state) {
       $reactive(this).attach($scope);

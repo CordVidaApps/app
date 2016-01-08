@@ -6,26 +6,23 @@ angular.module("cordvida.mobile").directive('login', function() {
     controller: function ($scope, $reactive, $state) {
       $reactive(this).attach($scope);
  
-      this.isStepTwo = false;
-      this.phoneNumber = '';
-      this.verificationCode = '';
-      this.error = '';
- 
-      this.verifyPhone = () => {
-        Accounts.requestPhoneVerification(this.phoneNumber);
-        this.isStepTwo = true;
+      this.credentials = {
+        email: '',
+        password: ''
       };
  
-      this.verifyCode = () => {
-        Accounts.verifyPhone(this.phoneNumber, this.verificationCode, (err) => {
+      this.error = '';
+ 
+      this.login = () => {
+        Meteor.loginWithPassword(this.credentials.email, this.credentials.password, (err) => {
           if (err) {
             this.error = err;
           }
           else {
-            $state.go('parties');
+            $state.go('users');
           }
         });
-      }
+      };
     }
   }
 });

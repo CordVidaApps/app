@@ -14,11 +14,15 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('angular');
   api.use('driftyco:ionic');
+  api.use('less');
 
   api.addFiles([
     'client/lib/module.js',
     'client/auth/login/login.component.js',
-    'client/auth/login/login.html'
+    'client/auth/login/login.html',
+    'client/auth/login/styles/login.less',
+    'client/home/home-cordvida.component.js',
+    'client/home/home-cordvida.html',
   ], 'web.cordova');
 });
 

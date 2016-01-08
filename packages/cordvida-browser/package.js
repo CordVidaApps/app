@@ -17,7 +17,9 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/lib/module.js',
     'client/auth/login/login.component.js',
-    'client/auth/login/login.html'
+    'client/auth/login/login.html',
+    'client/home/home-cordvida.component.js',
+    'client/home/home-cordvida.html',
   ], 'web.browser');
 });
  

@@ -36,10 +36,20 @@ angular.module('cordvida').config(function ($urlRouterProvider, $stateProvider, 
     })
     .state('info', {
       url: '/info',
-      template: '<info></info>'
+      template: '<info></info>',
+      resolve: {
+        currentUser: ($q) => {
+          if (Meteor.userId() == null) {
+            return $q.reject('AUTH_REQUIRED');
+          }
+          else {
+            return $q.resolve();
+          }
+        }
+      }
     });
 
-  $urlRouterProvider.otherwise("/users");
+  $urlRouterProvider.otherwise("/info");
 })
 .run(function ($rootScope, $state) {
   $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {

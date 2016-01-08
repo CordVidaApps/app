@@ -8,8 +8,8 @@ Meteor.startup(function () {
           name: 'Pedro',
           estimateBornDate: new Date(2016, 02, 20),
           maternityLocation: {
-            latitude: 45,
-            longitude: -73
+            latitude: -25.4597917,
+            longitude: -49.2895203
           },
         },
       },
@@ -20,8 +20,8 @@ Meteor.startup(function () {
           name: 'PK',
           estimateBornDate: new Date(2016, 02, 20),
           maternityLocation: {
-            latitude: 45,
-            longitude: -73
+            latitude: -25.4597917,
+            longitude: -49.2895203
           },
         },
       },
@@ -32,8 +32,8 @@ Meteor.startup(function () {
           name: 'Max',
           estimateBornDate: new Date(2016, 02, 20),
           maternityLocation: {
-            latitude: 45,
-            longitude: -73
+            latitude: -25.4597917,
+            longitude: -49.2895203
           },
         },
       },
@@ -44,8 +44,8 @@ Meteor.startup(function () {
           name: 'Bel',
           estimateBornDate: new Date(2016, 02, 20),
           maternityLocation: {
-            latitude: 45,
-            longitude: -73
+            latitude: -25.4597917,
+            longitude: -49.2895203
           },
         },
       },

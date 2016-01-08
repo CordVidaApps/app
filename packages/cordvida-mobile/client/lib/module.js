@@ -1,3 +1,3 @@
 angular.module('cordvida.mobile', [
-  'ionic'
+  'ionic',
 ]);

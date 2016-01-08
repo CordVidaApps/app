@@ -3,7 +3,7 @@ angular.module("cordvida.mobile").directive('info', function() {
     restrict: 'E',
     templateUrl: '/packages/cordvida-mobile/client/info/info.html',
     controllerAs: 'info',
-    controller: function ($scope, $reactive, $state, $ionicPopup, GoogleMaps) {
+    controller: function ($scope, $reactive, $state, $ionicPopup, BackgroundLocation) {
       $reactive(this).attach($scope);
  
       this.remainingDays = () => {
@@ -45,8 +45,8 @@ angular.module("cordvida.mobile").directive('info', function() {
         });
       };
 
-      
-      
+      BackgroundLocation.init();
+
     }
   }
 });

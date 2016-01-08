@@ -15,7 +15,6 @@ Package.onUse(function(api) {
   api.use('angular');
   api.use('driftyco:ionic');
   api.use('momentjs:moment');
-  api.use('dburles:google-maps');
   api.use('less');
 
   api.addFiles([
@@ -23,6 +22,8 @@ Package.onUse(function(api) {
 
     'client/google-maps/google-maps-service.js',
     'client/google-maps/connectivity-service.js',
+
+    'client/background-geolocation/background-geolocation-service.js',
 
     'client/auth/login/login.component.js',
     'client/auth/login/login.html',
@@ -41,5 +42,6 @@ Package.onTest(function(api) {
 });
 
 Cordova.depends({
-    'cordova-plugin-network-information': '1.1.0'
+    'cordova-plugin-network-information': '1.1.0',
+    'cordova-plugin-mauron85-background-geolocation': '0.7.3'
 });

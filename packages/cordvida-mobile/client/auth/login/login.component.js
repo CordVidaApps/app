@@ -19,7 +19,7 @@ angular.module("cordvida.mobile").directive('login', function() {
             this.error = err;
           }
           else {
-            $state.go('users');
+            $state.go('info');
           }
         });
       };

@@ -33,6 +33,10 @@ angular.module('cordvida').config(function ($urlRouterProvider, $stateProvider, 
     .state('login', {
       url: '/login',
       template: '<login></login>'
+    })
+    .state('info', {
+      url: '/info',
+      template: '<info></info>'
     });
 
   $urlRouterProvider.otherwise("/users");

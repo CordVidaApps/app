@@ -6,6 +6,7 @@ Meteor.startup(function () {
         'password': 'teste',
         'profile': {
           name: 'Pedro',
+          estimateBornDate: new Date(2016, 02, 20),
           maternityLocation: {
             latitude: 45,
             longitude: -73
@@ -17,6 +18,7 @@ Meteor.startup(function () {
         'password': 'teste',
         'profile': {
           name: 'PK',
+          estimateBornDate: new Date(2016, 02, 20),
           maternityLocation: {
             latitude: 45,
             longitude: -73
@@ -28,6 +30,7 @@ Meteor.startup(function () {
         'password': 'teste',
         'profile': {
           name: 'Max',
+          estimateBornDate: new Date(2016, 02, 20),
           maternityLocation: {
             latitude: 45,
             longitude: -73
@@ -39,6 +42,7 @@ Meteor.startup(function () {
         'password': 'teste',
         'profile': {
           name: 'Bel',
+          estimateBornDate: new Date(2016, 02, 20),
           maternityLocation: {
             latitude: 45,
             longitude: -73

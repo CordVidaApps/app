@@ -1,0 +1,43 @@
+<ion-view title="CordVida">
+  <ion-nav-buttons side="right">
+    
+    <button class="button button-icon ion-android-exit" ng-click="logout()">
+    </button>
+    
+  </ion-nav-buttons> 
+
+  <ion-content class="home-screen" has-header="true">
+
+    <div class="card birth-card">
+      <div class="item item-divider">
+        Dias para o parto previsto
+      </div>
+      <div class="item">
+        <p>{{info.remainingDays()}}</p>
+        <span>{{info.dayFormatted()}}</span>
+      </div>
+    </div>
+
+    <div class="card address-card">
+      <div class="item item-divider">
+        Maternidade
+      </div>
+      <div class="item map-address">
+        <div id="hospMap" data-tap-disabled="true"></div>
+      </div>
+      <div class="item">
+        <p>Hospital São Lucas</p>
+        <div class="address">
+          <span>Av. João Gualberto, 1946, Curitiba</span>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar class="home-footer">
+    <button class="button button-block button-dark" ng-click="info.showConfirmation()">
+      <p>ESTAMOS INDO PARA A MATERNIDADE!</p>
+    </button>
+  </ion-footer-bar>
+</ion-view>

@@ -20,6 +20,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/lib/module.js',
 
+    'client/styles/main.less',
+
     'client/google-maps/google-maps-service.js',
     'client/google-maps/connectivity-service.js',
 

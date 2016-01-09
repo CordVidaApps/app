@@ -1,0 +1,16 @@
+The user your selected is:
+<p>{{userDetails.user.profile.name}}</p>
+
+<button ui-sref="users">Voltar</button>
+
+<div class="angular-google-map-container">
+  <ui-gmap-google-map center="userDetails.map.center"
+    zoom="userDetails.map.zoom">
+    <ui-gmap-marker coords="userDetails.user.profile.maternityLocation"
+      idkey="userDetails.user._id">
+    </ui-gmap-marker>
+    <ui-gmap-markers models="userDetails.locations" coords="'center'"
+                     fit="true" idkey="'_id'" icon="'icon'">
+    </ui-gmap-markers>
+  </ui-gmap-google-map>
+</div>

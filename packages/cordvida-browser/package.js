@@ -13,15 +13,28 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('angular');
+  api.use('less');
  
   api.addFiles([
     'client/lib/module.js',
+
+    'client/styles/main.less',
+
     'client/auth/login/login.component.js',
     'client/auth/login/login.html',
+
+    'client/users/users-list/users-list.component.js',
+    'client/users/users-list/users-list.html',
+    'client/users/user-details/user-details.component.js',
+    'client/users/user-details/user-details.html',
+    'client/users/styles/google-maps.css',
+
     'client/home/home-cordvida.component.js',
     'client/home/home-cordvida.html',
+
   ], 'web.browser');
 });
+
  
 Package.onTest(function(api) {
   api.use('tinytest');

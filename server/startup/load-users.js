@@ -49,6 +49,18 @@ Meteor.startup(function () {
           },
         },
       },
+      {
+        'email': 'gabriel@teste.com',
+        'password': 'teste',
+        'profile': {
+          name: 'Gabriel',
+          estimateBornDate: new Date(2016, 02, 20),
+          maternityLocation: {
+            latitude: -25.4597917,
+            longitude: -49.2895203
+          },
+        },
+      },
       
     ];
 

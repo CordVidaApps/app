@@ -13,6 +13,9 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('angular');
+  api.use('angularui:angular-google-maps');
+  api.use('angular:angular-material');
+  api.use('planettraining:material-design-icons');
   api.use('less');
  
   api.addFiles([
@@ -25,6 +28,8 @@ Package.onUse(function(api) {
 
     'client/users/users-list/users-list.component.js',
     'client/users/users-list/users-list.html',
+    'client/users/user-item/user-item.component.js',
+    'client/users/user-item/user-item.html',
     'client/users/user-details/user-details.component.js',
     'client/users/user-details/user-details.html',
     'client/users/styles/google-maps.css',

@@ -1,8 +1,6 @@
 let modulesToLoad =  [
   'angular-meteor',
   'ui.router',
-  'uiGmapgoogle-maps',
-  'ngMaterial',
 ];
 
 if (Meteor.isCordova) {

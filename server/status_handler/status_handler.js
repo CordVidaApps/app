@@ -31,3 +31,7 @@ Scores.after.insert(function(userId, score) {
     console.log('************ aggregatedScore updated', err, res);
   });
 });
+
+Meteor.users.after.update(function (userId, doc, fieldNames, modifier, options) {
+  console.log('$$$$$$$$$$$$$ AFTER USER UPDATE HOOK', userId, fieldNames);
+});

@@ -19,6 +19,7 @@ angular.module('cordvida').config(function ($urlRouterProvider, $stateProvider, 
       template: '<info></info>',
       resolve: {
         currentUser: ($q) => {
+          console.log('%%%%%%%%%%% RESOLVE FUNCTION');
           if (Meteor.userId() == null) {
             return $q.reject('AUTH_REQUIRED');
           }

@@ -11,6 +11,7 @@ Meteor.startup(function () {
             latitude: -25.4597917,
             longitude: -49.2895203
           },
+          status: 'normal',
         },
       },
       {
@@ -23,6 +24,7 @@ Meteor.startup(function () {
             latitude: -25.4597917,
             longitude: -49.2895203
           },
+          status: 'normal',
         },
       },
       {
@@ -35,6 +37,7 @@ Meteor.startup(function () {
             latitude: -25.4597917,
             longitude: -49.2895203
           },
+          status: 'normal',
         },
       },
       {
@@ -47,6 +50,7 @@ Meteor.startup(function () {
             latitude: -25.4597917,
             longitude: -49.2895203
           },
+          status: 'normal',
         },
       },
       {
@@ -59,6 +63,7 @@ Meteor.startup(function () {
             latitude: -25.4597917,
             longitude: -49.2895203
           },
+          status: 'normal',
         },
       },
       

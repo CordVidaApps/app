@@ -1,5 +1,7 @@
-<md-button ng-click="userItem.goToUser(user)">
-  {{userItem.user.profile.name}}
+<md-button ng-click="userItem.goToUser(user)" flex="20">
+  <span>{{userItem.user.profile.name}}</span>
 </md-button>
-<span>span</span>
-<p>paragraph</p>
+  
+<span flex="10">{{userItem.user.status}}</span>
+<span flex="10">{{userItem.estimateBornDate()}}</span>
+<span flex="10">{{userItem.timeFromLastLocation()}}</span>

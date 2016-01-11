@@ -3,8 +3,18 @@
   
   <md-content flex id="content">
     <md-list>
+      <md-list-item>
+        <div layout="row" layout-align="start center" layout-padding flex>
+          <span flex="20">Nome</span>
+          <span flex="10">Status</span>
+          <span flex="10">Data de Nasc. Prevista</span>
+          <span flex="10">Tempo da Ultima Local.</span>
+        </div>
+        <md-divider></md-divider>
+      </md-list-item>
       <md-list-item ng-repeat="user in usersList.users">
-        <user-item user="user"></user-item>
+        <user-item user="user" layout="row" layout-align="start center" layout-padding flex></user-item>
+        <md-divider></md-divider>
       </md-list-item>
     </md-list>
   </md-content>

@@ -5,30 +5,10 @@ angular.module('cordvida').config(function ($urlRouterProvider, $stateProvider, 
     .state('users', {
       url: '/users',
       template: '<users-list></users-list>',
-      resolve: {
-        currentUser: ($q) => {
-          if (Meteor.userId() == null) {
-            return $q.reject('AUTH_REQUIRED');
-          }
-          else {
-            return $q.resolve();
-          }
-        }
-      }
     })
     .state('userDetails', {
       url: '/users/:userId',
       template: '<user-details></user-details>',
-      resolve: {
-        currentUser: ($q) => {
-          if (Meteor.userId() == null) {
-            return $q.reject('AUTH_REQUIRED');
-          }
-          else {
-            return $q.resolve();
-          }
-        }
-      }
     })
     .state('login', {
       url: '/login',

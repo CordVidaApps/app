@@ -4,6 +4,7 @@ Meteor.publish('users', function () {
       emails: 1,
       profile: 1,
       status: 1,
+      aggregatedScore: 1,
       lastLocationTime: 1,
     }
   });

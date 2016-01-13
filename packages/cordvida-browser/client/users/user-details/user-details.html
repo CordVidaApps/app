@@ -27,11 +27,11 @@
       <span flex="20">{{score.distance}} metros</span>
     </md-content>
   </md-content>
-  <md-content class="google-map-container">
+  <md-content class="google-map-container" ng-if="userDetails.user">
     <ui-gmap-google-map center="userDetails.map.center"
       zoom="userDetails.map.zoom">
-      <ui-gmap-marker coords="userDetails.user.profile.maternityLocation"
-        idkey="userDetails.user._id">
+      <ui-gmap-marker coords="userDetails.userMaternityLocation()"
+        idkey="userDetails.userId()">
       </ui-gmap-marker>
       <ui-gmap-markers models="userDetails.locations" coords="'center'"
                        fit="true" idkey="'_id'" icon="'icon'">

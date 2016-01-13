@@ -30,10 +30,32 @@ angular.module('cordvida.browser').directive('userDetails', function() {
         return [ $stateParams.userId ];
       });
 
+      this.userLat = () => {
+        if(this.user) {
+          return this.user.profile.maternityLocation.latitude;
+        }
+        return -15.7833;
+      }
+
+      this.userLng = () => {
+        if(this.user) {
+          return this.user.profile.maternityLocation.longitude;
+        }
+        return -47.8667;
+      }
+
+      this.userMaternityLocation = () => {
+        return this.user && this.user.profile.maternityLocation;
+      };
+
+      this.userId = () => {
+        return this.user && this.user._id;
+      }
+
       this.map = {
         center: {
-          latitude: this.user.profile.maternityLocation.latitude ? this.user.profile.maternityLocation.latitude : -15.7833,
-          longitude: this.user.profile.maternityLocation.longitude ? this.user.profile.maternityLocation.longitude : -47.8667,
+          latitude: this.userLat(),
+          longitude: this.userLng(),
         },
         zoom: 14,
         events: {},

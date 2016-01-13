@@ -9,21 +9,26 @@ angular.module('cordvida.browser').directive('userItem', function() {
     controller: function($scope, $reactive, $state) {
       $reactive(this).attach($scope);
 
-      this.user = $scope.user;
+      this.helpers({
+        user: function () {
+          return $scope.user;
+        }
+      });
 
       this.goToUser = (user) => {
         $state.go('userDetails', {userId: this.user._id});
       };
 
       this.userStatus = () => {
-        return this.user.status;
+        return this.user && this.user.status;
       }
 
       this.estimateBornDate = () => {
-        return moment(this.user.profile.estimateBornDate).format('DD/MM/YYYY');
+        return this.user && moment(this.user.profile.estimateBornDate).format('DD/MM/YYYY');
       };
 
       this.timeFromLastLocation = () => {
+        if(!this.user || this.user.lastLocationTime) return 'never';
         return moment(this.user.lastLocationTime).fromNow();
       }
 

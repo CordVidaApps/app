@@ -12,6 +12,11 @@ Meteor.methods({
       {$set: {
         status: 'normal',
         aggregatedScore: 0,
+      }, $unset: {
+        falseTimeAlarm: '',
+        attentionTime: '',
+        urgencyTime: '',
+        lastLocationTime: '',
       }}
     );
   },

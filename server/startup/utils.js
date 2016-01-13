@@ -4,6 +4,18 @@ Meteor.methods({
     Locations.remove({});
     Scores.remove({});
   },
+
+  clearUserLocationsAndScores: function(userId){
+    Locations.remove({userId: userId});
+    Scores.remove({userId: userId});
+    Meteor.users.update({_id: userId}, 
+      {$set: {
+        status: 'normal',
+        aggregatedScore: 0,
+      }}
+    );
+  },
+
   loadUsers: function(){
     var users = [
       {

@@ -6,26 +6,31 @@ angular.module("cordvida.mobile").directive('info', function() {
     controller: function ($scope, $reactive, $state, $ionicPopup, BackgroundLocation) {
       $reactive(this).attach($scope);
       
+      this.helpers({
+        user: function () {
+          return Meteor.user();
+        }
+      });
+
       this.subscribe('users');
 
       this.remainingDays = () => {
-        if(!Meteor.user()) return;
+        if(!this.user) return;
         var rightNow = moment();
-        var birthDate = moment(Meteor.user().profile.estimateBornDate);
+        var birthDate = moment(this.user.profile.estimateBornDate);
         return birthDate.diff(rightNow, 'days');
       };
     
-
       this.dayFormatted = () => {
-        if(!Meteor.user()) return;
+        if(!this.user) return;
         moment.locale('pt');
-        var birthDate = moment(Meteor.user().profile.estimateBornDate);
+        var birthDate = moment(this.user.profile.estimateBornDate);
         return birthDate.format('dddd DD/MM/YYYY');
       };
 
       this.isStatusUrgency = () => {
-        if(!Meteor.user()) return;
-        return Meteor.user().status === 'urgency';
+        if(!this.user) return;
+        return this.user.status === 'urgency';
       }
 
       this.showConfirmation = () => {

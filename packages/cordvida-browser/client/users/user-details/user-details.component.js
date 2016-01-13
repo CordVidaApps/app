@@ -14,7 +14,11 @@ angular.module('cordvida.browser').directive('userDetails', function() {
           return Locations.find({userId: $stateParams.userId});
         },
         scores: () => {
-          return Scores.find({userId: $stateParams.userId});
+          var timeThreshold = moment().subtract(3, 'hours').toDate();
+          return Scores.find({
+            userId: $stateParams.userId,
+            createdAt: { $gt: timeThreshold }
+          });
         },
       });
 

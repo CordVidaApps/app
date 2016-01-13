@@ -38,19 +38,6 @@ angular.module('cordvida.browser').directive('userDetails', function() {
           events: {}
         }
       };
-
-      this.estimateBornDate = () => {
-        return moment(this.user.profile.estimateBornDate).format('DD/MM/YYYY');
-      };
-
-      this.timeFromLastLocation = () => {
-        return moment(this.user.lastLocationTime).fromNow();
-      };
-
-      this.aggregatedScore = () => {
-        if(!this.user || !this.user.aggregatedScore) return 0;
-        return this.user.aggregatedScore.toFixed(2);
-      }
     }
   }
 });

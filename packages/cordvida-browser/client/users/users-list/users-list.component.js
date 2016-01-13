@@ -8,7 +8,15 @@ angular.module('cordvida.browser').directive('usersList', function() {
 
       this.helpers({
         users: () => {
-          return Meteor.users.find({});
+          return Meteor.users.find({}, {
+            fields: {
+              emails: 1,
+              profile: 1,
+              status: 1,
+              aggregatedScore: 1,
+              lastLocationTime: 1,
+            }
+          });
         }
       });
 

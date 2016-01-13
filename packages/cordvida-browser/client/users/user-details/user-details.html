@@ -6,13 +6,11 @@
     <h5 flex="10">Score Agregado</h5>
     <h5 flex="10">Tempo da Ultima Local.</h5>
   </md-content>
+
   <md-content layout="row" layout-align="start center" layout-padding flex>
-    <span flex="10">{{userDetails.user.profile.name}}</span>
-    <span flex="10">{{userDetails.user.status}}</span>
-    <span flex="10">{{userDetails.estimateBornDate()}}</span>
-    <span flex="10">{{userDetails.aggregatedScore()}}</span>
-    <span flex="10">{{userDetails.timeFromLastLocation()}}</span>
+    <user-item user="userDetails.user" layout="row" layout-align="start center" layout-padding flex></user-item>
   </md-content>
+  
   <md-button ui-sref="users">Voltar para tela de usuarios</md-button>
 
 <md-content layout="row" layout-align="start" layout-fill layout-padding>

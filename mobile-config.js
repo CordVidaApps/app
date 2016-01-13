@@ -9,7 +9,7 @@ App.info({
   id: 'br.com.plraphael.cordvida',
   name: 'CordVida',
   description: 'Aplicativo da CordVida.',
-  version: "0.12"
+  version: "0.13"
 });
 
 // Set PhoneGap/Cordova preferences
@@ -21,36 +21,36 @@ App.setPreference('StatusBarBackgroundColor', '#9a2d42');
 // // Set up resources such as icons and launch screens.
 App.icons({
   // iOS
-  'iphone': 'resources/icons/ios/icon/Icon.png',
-  'iphone_2x': 'resources/icons/ios/icon/Icon@2x.png',
-  //'iphone_3x': 'resources/icons/ios/icon/Icon.png',
-  'ipad': 'resources/icons/ios/icon/Icon-72.png',
-  'ipad_2x': 'resources/icons/ios/icon/Icon-152.png',
+  'iphone': 'resources/iOS/Resources/icons/Icon.png',
+  'iphone_2x': 'resources/iOS/Resources/icons/Icon@2x.png',
+  //'iphone_3x': 'resources/iOS/Resources/icons/Icon.png',
+  'ipad': 'resources/iOS/Resources/icons/Icon-72.png',
+  'ipad_2x': 'resources/iOS/Resources/icons/Icon-152.png',
 
   // Android
-  'android_ldpi': 'resources/icons/android/res/drawable-ldpi/Icon.png',
-  'android_mdpi': 'resources/icons/android/res/drawable-mdpi/Icon.png',
-  'android_hdpi': 'resources/icons/android/res/drawable-hdpi/Icon.png',
-  'android_xhdpi': 'resources/icons/android/res/drawable-xhdpi/Icon.png',
+  'android_ldpi': 'resources/Android/res/drawable-ldpi/icon.png',
+  'android_mdpi': 'resources/Android/res/drawable-mdpi/icon.png',
+  'android_hdpi': 'resources/Android/res/drawable-hdpi/icon.png',
+  'android_xhdpi': 'resources/Android/res/drawable-xhdpi/icon.png',
 });
 
 App.launchScreens({
   // iOS
-  'iphone': 'resources/splash/ios/default/Default.png',
-  'iphone_2x': 'resources/splash/ios/default/Default@2x.png',
-  'iphone5': 'resources/splash/ios/default/Default-568h@2x.png',
-  'ipad_portrait': 'resources/splash/ios/default/Default-Portrait.png',
-  'ipad_portrait_2x': 'resources/splash/ios/default/Default-Portrait@2x.png',
-  'ipad_landscape': 'resources/splash/ios/default/Default-Landscape.png',
-  'ipad_landscape_2x': 'resources/splash/ios/default/Default-Landscape@2x.png',
+  'iphone': 'resources/iOS/Resources/splash/Default~iphone.png',
+  'iphone_2x': 'resources/iOS/Resources/splash/Default@2x~iphone_640x960.png',
+  'iphone5': 'resources/iOS/Resources/splash/Default-568h@2x~iphone_640x1136.png',
+  'ipad_portrait': 'resources/iOS/Resources/splash/Default-Portrait~ipad_768x1024.png',
+  'ipad_portrait_2x': 'resources/iOS/Resources/splash/Default-Portrait@2x~ipad_1536x2048.png',
+  'ipad_landscape': 'resources/iOS/Resources/splash/Default-Landscape~ipad_1024x748.png',
+  'ipad_landscape_2x': 'resources/iOS/Resources/splash/Default-Landscape@2x~ipad_2048x1536.png',
 
   // Android
-  'android_ldpi_portrait': 'resources/splash/android/res/drawable-ldpi/splash.png',
-  'android_ldpi_landscape': 'resources/splash/android/res/drawable-ldpi/splash.png',
-  'android_mdpi_portrait': 'resources/splash/android/res/drawable-mdpi/splash.png',
-  'android_mdpi_landscape': 'resources/splash/android/res/drawable-mdpi/splash.png',
-  'android_hdpi_portrait': 'resources/splash/android/res/drawable-hdpi/splash.png',
-  'android_hdpi_landscape': 'resources/splash/android/res/drawable-hdpi/splash.png',
-  'android_xhdpi_portrait': 'resources/splash/android/res/drawable-xhdpi/splash.png',
-  'android_xhdpi_landscape': 'resources/splash/android/res/drawable-xhdpi/splash.png'
+  'android_ldpi_portrait': 'resources/Android/res/drawable-ldpi/screen.png',
+  'android_ldpi_landscape': 'resources/Android/res/drawable-land-ldpi/screen.png',
+  'android_mdpi_portrait': 'resources/Android/res/drawable-mdpi/screen.png',
+  'android_mdpi_landscape': 'resources/Android/res/drawable-land-mdpi/screen.png',
+  'android_hdpi_portrait': 'resources/Android/res/drawable-hdpi/screen.png',
+  'android_hdpi_landscape': 'resources/Android/res/drawable-land-hdpi/screen.png',
+  'android_xhdpi_portrait': 'resources/Android/res/drawable-xhdpi/screen.png',
+  'android_xhdpi_landscape': 'resources/Android/res/drawable-land-xhdpi/screen.png'
 });

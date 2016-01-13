@@ -1,5 +1,10 @@
-Meteor.startup(function () {
-  if (Meteor.users.find().count() === 0) {
+Meteor.methods({
+  clearData: function () {
+    Meteor.users.remove({});
+    Locations.remove({});
+    Scores.remove({});
+  },
+  loadUsers: function(){
     var users = [
       {
         'email': 'pedro@teste.com',
@@ -65,7 +70,7 @@ Meteor.startup(function () {
           },
           status: 'normal',
         },
-      },,
+      },
       {
         'email': 'ursula@teste.com',
         'password': 'teste',

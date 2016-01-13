@@ -24,7 +24,7 @@ Repositório inicial do projeto CordVida.
 
 
 ## ICONES E SPLASHS
-- http://ticons.fokkezb.nl/
+- http://apetools.webprofusion.com/tools/imagegorilla
 
 ## DEPLOY INICIAL USANDO MUP
 - http://sergelobatch.com/slog/2015/4/10/using-mup/

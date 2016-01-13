@@ -1,36 +1,35 @@
 <md-content>
-  <div layout="row" layout-align="start center" layout-padding flex>
+  <md-content layout="row" layout-align="start center" layout-padding flex>
     <h5 flex="10">Nome</h5>
     <h5 flex="10">Status</h5>
     <h5 flex="10">Data de Nasc. Prevista</h5>
     <h5 flex="10">Score Agregado</h5>
     <h5 flex="10">Tempo da Ultima Local.</h5>
-  </div>
-  <div layout="row" layout-align="start center" layout-padding flex>
+  </md-content>
+  <md-content layout="row" layout-align="start center" layout-padding flex>
     <span flex="10">{{userDetails.user.profile.name}}</span>
     <span flex="10">{{userDetails.user.status}}</span>
     <span flex="10">{{userDetails.estimateBornDate()}}</span>
     <span flex="10">{{userDetails.aggregatedScore()}}</span>
     <span flex="10">{{userDetails.timeFromLastLocation()}}</span>
-  </div>
+  </md-content>
   <md-button ui-sref="users">Voltar para tela de usuarios</md-button>
-</md-content>
 
 <md-content layout="row" layout-align="start" layout-fill layout-padding>
-  <div layout-fill layout-padding flex>
+  <md-content layout-fill layout-padding flex>
     <h4>Scores</h4>
-    <div layout="row" layout-align="start center" layout-fill flex>
+    <md-content layout="row" layout-align="start center" layout-fill flex>
       <span flex="10">#</span>
       <span flex="20">Score Value</span>
       <span flex="20">Distancia</span>
-    </div>
-    <div ng-repeat="score in userDetails.scores"  layout="row" layout-align="start center" layout-padding flex>
+    </md-content>
+    <md-content ng-repeat="score in userDetails.scores"  layout="row" layout-align="start center" layout-padding flex>
       <span flex="10">{{$index}}</span>
       <span flex="20">{{score.scoreValue.toFixed(0)}}</span>
       <span flex="20">{{score.distance}} metros</span>
-    </div>
-  </div>
-  <div class="google-map-container">
+    </md-content>
+  </md-content>
+  <md-content class="google-map-container">
     <ui-gmap-google-map center="userDetails.map.center"
       zoom="userDetails.map.zoom">
       <ui-gmap-marker coords="userDetails.user.profile.maternityLocation"
@@ -40,5 +39,6 @@
                        fit="true" idkey="'_id'" icon="'icon'">
       </ui-gmap-markers>
     </ui-gmap-google-map>
-  </div>
+  </md-content>
+</md-content>
 </md-content>

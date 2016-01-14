@@ -45,7 +45,13 @@ Scores.after.insert(function(userId, score) {
     aggregatedScore: aggregatedScore
   }
   var ATTENTION_THRESHOLD = 500;
-  var URGENCY_THRESHOLD = 3000;
+  var URGENCY_THRESHOLD = 1500;
+
+  if(aggregatedScore < ATTENTION_THRESHOLD) {
+    _.extend(updateObj, {
+      status: 'normal',
+    });
+  }
 
   if(aggregatedScore > ATTENTION_THRESHOLD && aggregatedScore < URGENCY_THRESHOLD) {
     console.log('******** ATTENTION STATUS');
@@ -71,5 +77,22 @@ Scores.after.insert(function(userId, score) {
 
 
 Meteor.users.after.update(function (userId, doc, fieldNames, modifier, options) {
-  console.log('$$$$$$$$$$$$$ AFTER USER UPDATE HOOK', userId, fieldNames);
+  console.log('$$$$$$$$$$$$$ AFTER USER UPDATE HOOK', userId, fieldNames, doc.status, this.previous.status);
+
+  if(!_.contains(fieldNames, 'status')) return;
+
+  if(this.previous.status === 'urgency') return;
+
+  if(doc.status === 'urgency') {
+    console.log("%%%%%%%%%%%%%%%%%%%%%%% email");
+
+    CordvidaMailgun.send({
+      'to': doc.emails[0].address,
+      'from': doc.emails[0].address,
+      'subject':  "Mudança de Status",
+      'text': "Seu status mudou de " + this.previous.status + 
+        " para urgente."  + ". Entraremos em contato em instantes.",
+    });
+  }
+
 });

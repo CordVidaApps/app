@@ -11,7 +11,11 @@ angular.module('cordvida.browser').directive('userDetails', function() {
           return Meteor.users.findOne({ _id: $stateParams.userId });
         },
         locations: () => {
-          return Locations.find({userId: $stateParams.userId});
+          var timeThreshold = moment().subtract(3, 'hours').toDate();
+          return Locations.find({
+            userId: $stateParams.userId,
+            date: { $gt: timeThreshold }
+          });
         },
         scores: () => {
           var timeThreshold = moment().subtract(3, 'hours').toDate();

@@ -6,6 +6,7 @@ Meteor.methods({
   },
 
   clearUserLocationsAndScores: function(userId){
+    console.log("REMOVING LOCATIONS AND SCORES", userId);
     Locations.remove({userId: userId});
     Scores.remove({userId: userId});
     Meteor.users.update({_id: userId}, 
@@ -24,7 +25,7 @@ Meteor.methods({
   loadUsers: function(){
     var users = [
       {
-        'email': 'pedro@teste.com',
+        'email': 'pedroluis.raphael@gmail.com',
         'password': 'teste',
         'status': 'normal',
         'profile': {
@@ -37,10 +38,10 @@ Meteor.methods({
         },
       },
       {
-        'email': 'pk@teste.com',
+        'email': 'pk@klien.net',
         'password': 'teste',
         'profile': {
-          name: 'PK',
+          name: 'Phillip',
           estimateBornDate: new Date(2016, 02, 20),
           maternityLocation: {
             latitude: -23.5927582,
@@ -49,7 +50,7 @@ Meteor.methods({
         },
       },
       {
-        'email': 'max@teste.com',
+        'email': 'max.assuncao@cordvida.com.br',
         'password': 'teste',
         'profile': {
           name: 'Max',
@@ -61,7 +62,7 @@ Meteor.methods({
         },
       },
       {
-        'email': 'bel@teste.com',
+        'email': 'isabel.capistrano@gmail.com',
         'password': 'teste',
         'profile': {
           name: 'Bel',
@@ -73,7 +74,7 @@ Meteor.methods({
         },
       },
       {
-        'email': 'gabriel@teste.com',
+        'email': 'gabrielhpugliese@gmail.com',
         'password': 'teste',
         'profile': {
           name: 'Gabriel',
@@ -85,7 +86,7 @@ Meteor.methods({
         },
       },
       {
-        'email': 'ursula@teste.com',
+        'email': 'ursulacoelho@live.com',
         'password': 'teste',
         'profile': {
           name: 'Ursula',

@@ -40,8 +40,19 @@
       </div>
     </div>
 
-  </ion-content>
+    <div class="urgent-button">
+      <button ng-if="!info.isStatusUrgency()" class="button button-block button-dark" 
+        ng-click="info.showConfirmation()">
+        <p>ESTAMOS INDO PARA A MATERNIDADE!</p>
+      </button>
+      <button ng-if="info.isStatusUrgency()" class="button button-block button-assertive" 
+        ng-click="info.showFalseAlarmConfirmation()">
+        <p>ALARME FALSO!</p>
+      </button>
+    </div>
 
+  </ion-content>
+  <!--
   <ion-footer-bar class="home-footer">
     <button ng-if="!info.isStatusUrgency()" class="button button-block button-dark" ng-click="info.showConfirmation()">
       <p>ESTAMOS INDO PARA A MATERNIDADE!</p>
@@ -50,4 +61,5 @@
       <p>ALARME FALSO!</p>
     </button>
   </ion-footer-bar>
+  -->
 </ion-view>

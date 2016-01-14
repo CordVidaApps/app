@@ -3,7 +3,7 @@ angular.module("cordvida.mobile").directive('info', function() {
     restrict: 'E',
     templateUrl: '/packages/cordvida-mobile/client/info/info.html',
     controllerAs: 'info',
-    controller: function ($scope, $reactive, $state, $ionicPopup, BackgroundLocation) {
+    controller: function ($scope, $reactive, $state, $ionicPopup, BackgroundLocation, GoogleMaps) {
       $reactive(this).attach($scope);
       
       this.helpers({
@@ -104,6 +104,47 @@ angular.module("cordvida.mobile").directive('info', function() {
       };
 
       BackgroundLocation.init();
+
+      this.createMap = () => {
+        console.log("USER:", this.user);
+        var u = this.getReactively('user');
+        if(!u) return;
+
+        var hospCenter = this.user.profile.maternityLocation;
+        console.log('--------- hospCenter', hospCenter);
+        var hospLatLng = new google.maps.LatLng(hospCenter.latitude,hospCenter.longitude);
+
+        var mapOptions = {
+            center: hospLatLng,
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            disableDefaultUI: true,
+            draggable: false,
+            scrollwheel: false,
+        };
+
+        var hospMap = new google.maps.Map(document.getElementById("hospMap"), mapOptions);
+
+        this.hospMap = hospMap;
+        //Wait until the map is loaded
+        google.maps.event.addListenerOnce(this.hospMap, 'idle', () => {
+          var marker = new google.maps.Marker({
+              map: this.hospMap,
+              animation: google.maps.Animation.DROP,
+              position: hospLatLng
+          });      
+        });
+      };
+
+      GoogleMaps.init().then(
+        (res) => {
+          console.log('google maps iniciado com sucesso', res);
+          this.createMap();
+        }, 
+        (err) => {
+          console.log('erro init google maps', err);
+        }
+      );
 
     }
   }

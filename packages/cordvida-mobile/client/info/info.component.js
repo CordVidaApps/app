@@ -23,7 +23,9 @@ angular.module("cordvida.mobile").directive('info', function() {
     
       this.dayFormatted = () => {
         if(!this.user) return;
-        moment.locale('pt');
+        moment.locale('en', {
+          weekdays : "Domingo_Segunda_Terça_Quarta_Quinta_Sexta_Sábado".split("_"),
+        });
         var birthDate = moment(this.user.profile.estimateBornDate);
         return birthDate.format('dddd DD/MM/YYYY');
       };

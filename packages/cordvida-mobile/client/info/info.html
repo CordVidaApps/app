@@ -1,20 +1,27 @@
 <ion-view title="CordVida">
-  <ion-nav-buttons side="right">
-    
-    <button class="button button-icon ion-android-exit" ng-click="logout()">
-    </button>
-    
-  </ion-nav-buttons> 
 
-  <ion-content class="home-screen" has-header="true">
-
+  <ion-content class="home-screen has-header">
     <div class="card birth-card">
       <div class="item item-divider">
         Dias para o parto previsto
       </div>
-      <div class="item">
+      <div class="item remaining-days">
         <p>{{info.remainingDays()}}</p>
         <span>{{info.dayFormatted()}}</span>
+      </div>
+      <div class="item item-divider row row-center status-item">
+        <div class="col col-50">
+          Status
+        </div>
+        <div class="col col-50 status-info">
+          <div class="row row-center">
+            <div class="circle" ng-class="{ 'circle-green': info.isStatusNormal(),
+                                            'circle-yellow': info.isStatusAttention(),
+                                            'circle-red': info.isStatusUrgency() }">
+            </div>
+            <p class="">{{info.userStatus()}}</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -25,7 +32,7 @@
       <div class="item map-address">
         <div id="hospMap" data-tap-disabled="true"></div>
       </div>
-      <div class="item">
+      <div class="item address-footer">
         <p>Hospital São Lucas</p>
         <div class="address">
           <span>Av. João Gualberto, 1946, Curitiba</span>

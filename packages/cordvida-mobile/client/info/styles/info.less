@@ -22,6 +22,14 @@
   color: gray;
 }
 
+.home-screen .birth-card {
+  margin-top: 10px;
+}
+
+.home-screen .birth-card .remaining-days {
+  padding: 10px;
+}
+
 .home-screen .birth-card p {
   font-size: 50px;
   padding: 20px;
@@ -31,6 +39,37 @@
   font-size: 22px;
   color: #aaa;
   padding: 5px;
+}
+
+.home-screen .birth-card .status-item {
+  padding: 0px;
+}
+
+.home-screen .birth-card .status-info .circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 15px;
+  display: inline-block;
+}
+
+.circle-green {
+  background-color: green;
+}
+
+.circle-yellow {
+  background-color: yellow;
+}
+
+.circle-red {
+  background-color: red;
+}
+
+.home-screen .birth-card .status-info p {
+  display: inline-block;
+  font-size: 14px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .home-screen .address-card p {
@@ -45,16 +84,15 @@
 
 .home-screen .address-card .map-address {
   width: 100%;
-  height: 200px;
+  height: 150px;
   padding: 0px;
 }
 
-#hospMap {
-    width: 100%;
-    height: 100%;
+.home-screen .address-card .address-footer {
+  padding: 10px 15px;
 }
 
-#medMap {
+#hospMap {
     width: 100%;
     height: 100%;
 }

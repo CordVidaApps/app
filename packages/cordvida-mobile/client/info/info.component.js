@@ -28,6 +28,23 @@ angular.module("cordvida.mobile").directive('info', function() {
         return birthDate.format('dddd DD/MM/YYYY');
       };
 
+      this.userStatus = () => {
+        if(!this.user) return;
+        if(this.user.status === 'normal') return 'Normal';
+        if(this.user.status === 'attention') return 'Atenção';
+        if(this.user.status === 'urgency') return 'Urgente';
+      }
+
+      this.isStatusNormal = () => {
+        if(!this.user) return;
+        return this.user.status === 'normal';
+      }
+
+      this.isStatusAttention = () => {
+        if(!this.user) return;
+        return this.user.status === 'attention';
+      }
+
       this.isStatusUrgency = () => {
         if(!this.user) return;
         return this.user.status === 'urgency';

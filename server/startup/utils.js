@@ -30,7 +30,7 @@ Meteor.methods({
         'status': 'normal',
         'profile': {
           name: 'Pedro',
-          estimateBornDate: new Date(2016, 02, 20),
+          estimateBornDate: new Date(2016, 0, 20),
           maternityLocation: {
             latitude: -25.4597917,
             longitude: -49.2895203
@@ -42,7 +42,7 @@ Meteor.methods({
         'password': 'teste',
         'profile': {
           name: 'Phillip',
-          estimateBornDate: new Date(2016, 02, 20),
+          estimateBornDate: new Date(2016, 0, 20),
           maternityLocation: {
             latitude: -23.5927582,
             longitude: -46.6822805,
@@ -54,7 +54,7 @@ Meteor.methods({
         'password': 'teste',
         'profile': {
           name: 'Max',
-          estimateBornDate: new Date(2016, 02, 20),
+          estimateBornDate: new Date(2016, 0, 20),
           maternityLocation: {
             latitude: -23.5621793,
             longitude: -46.7140245,
@@ -66,7 +66,7 @@ Meteor.methods({
         'password': 'teste',
         'profile': {
           name: 'Bel',
-          estimateBornDate: new Date(2016, 02, 20),
+          estimateBornDate: new Date(2016, 0, 20),
           maternityLocation: {
             latitude: -22.9623821,
             longitude: -43.2204205
@@ -78,7 +78,7 @@ Meteor.methods({
         'password': 'teste',
         'profile': {
           name: 'Gabriel',
-          estimateBornDate: new Date(2016, 02, 20),
+          estimateBornDate: new Date(2016, 0, 20),
           maternityLocation: {
             latitude: -23.5180136,
             longitude: -46.6146033
@@ -90,7 +90,19 @@ Meteor.methods({
         'password': 'teste',
         'profile': {
           name: 'Ursula',
-          estimateBornDate: new Date(2016, 02, 20),
+          estimateBornDate: new Date(2016, 0, 20),
+          maternityLocation: {
+            latitude: -25.4379213,
+            longitude: -49.2914821
+          },
+        },
+      },
+      {
+        'email': 'apple@test.com',
+        'password': 'test',
+        'profile': {
+          name: 'Apple',
+          estimateBornDate: new Date(2016, 05, 20),
           maternityLocation: {
             latitude: -25.4379213,
             longitude: -49.2914821

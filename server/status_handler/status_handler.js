@@ -93,6 +93,13 @@ Meteor.users.after.update(function (userId, doc, fieldNames, modifier, options) 
       'text': "Seu status mudou de " + this.previous.status + 
         " para urgente."  + ". Entraremos em contato em instantes.",
     });
+    CordvidaMailgun.send({
+      'to': 'pedroluis.raphael@gmail.com',
+      'from': doc.emails[0].address,
+      'subject':  "Mudança de Status",
+      'text': "Seu status mudou de " + this.previous.status + 
+        " para urgente."  + ". Entraremos em contato em instantes.",
+    });
   }
 
 });

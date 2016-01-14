@@ -3,7 +3,7 @@ angular.module("cordvida.mobile").directive('login', function() {
     restrict: 'E',
     templateUrl: '/packages/cordvida-mobile/client/auth/login/login.html',
     controllerAs: 'login',
-    controller: function ($scope, $reactive, $state) {
+    controller: function ($scope, $reactive, $state, $ionicLoading) {
       $reactive(this).attach($scope);
  
       this.credentials = {
@@ -14,9 +14,18 @@ angular.module("cordvida.mobile").directive('login', function() {
       this.error = '';
  
       this.login = () => {
-        Meteor.loginWithPassword(this.credentials.email, this.credentials.password, (err) => {
+        this.error = '';
+        $ionicLoading.show({
+          template: 'Logging in...'
+        });
+        var emailObj = {
+          email: this.credentials.email
+        }
+        Meteor.loginWithPassword(emailObj, this.credentials.password, (err) => {
+          $ionicLoading.hide();
           if (err) {
-            this.error = err;
+            console.log('LOGIN ERROR', err);
+            this.error = 'Usuário e senha inválidos.';
           }
           else {
             $state.go('info');

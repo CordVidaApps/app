@@ -22,7 +22,7 @@ angular.module('cordvida.mobile').factory('BackgroundLocation',
         $window.plugins.backgroundGeoLocation.configure(callbackFn, failureFn, {
           desiredAccuracy: 10,
           stationaryRadius: 20,
-          distanceFilter: 30,
+          distanceFilter: 10,
           debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
           stopOnTerminate: false, // <-- enable this to clear background location settings when the app terminates
         });

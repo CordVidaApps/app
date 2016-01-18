@@ -30,10 +30,10 @@ Meteor.methods({
         'status': 'normal',
         'profile': {
           name: 'Pedro',
-          estimateBornDate: new Date(2016, 0, 20),
+          estimateBornDate: new Date(2016, 0, 25),
           maternityLocation: {
-            latitude: -25.4597917,
-            longitude: -49.2895203
+            latitude: -25.431839, 
+            longitude: -49.297747,
           },
         },
       },
@@ -42,10 +42,10 @@ Meteor.methods({
         'password': 'teste',
         'profile': {
           name: 'Phillip',
-          estimateBornDate: new Date(2016, 0, 20),
+          estimateBornDate: new Date(2016, 0, 25),
           maternityLocation: {
-            latitude: -23.5927582,
-            longitude: -46.6822805,
+            latitude: -23.578771,
+            longitude: -46.673612, 
           },
         },
       },
@@ -54,10 +54,10 @@ Meteor.methods({
         'password': 'teste',
         'profile': {
           name: 'Max',
-          estimateBornDate: new Date(2016, 0, 20),
+          estimateBornDate: new Date(2016, 0, 25),
           maternityLocation: {
-            latitude: -23.5621793,
-            longitude: -46.7140245,
+            latitude: -23.551337, 
+            longitude: -46.747190,
           },
         },
       },
@@ -66,10 +66,10 @@ Meteor.methods({
         'password': 'teste',
         'profile': {
           name: 'Bel',
-          estimateBornDate: new Date(2016, 0, 20),
+          estimateBornDate: new Date(2016, 0, 25),
           maternityLocation: {
-            latitude: -22.9623821,
-            longitude: -43.2204205
+            latitude: -22.962367,
+            longitude: -43.218280
           },
         },
       },
@@ -78,10 +78,10 @@ Meteor.methods({
         'password': 'teste',
         'profile': {
           name: 'Gabriel',
-          estimateBornDate: new Date(2016, 0, 20),
+          estimateBornDate: new Date(2016, 0, 25),
           maternityLocation: {
-            latitude: -23.5180136,
-            longitude: -46.6146033
+            latitude: -23.518090, 
+            longitude: -46.614517
           },
         },
       },
@@ -90,10 +90,10 @@ Meteor.methods({
         'password': 'teste',
         'profile': {
           name: 'Ursula',
-          estimateBornDate: new Date(2016, 0, 20),
+          estimateBornDate: new Date(2016, 0, 25),
           maternityLocation: {
-            latitude: -25.4379213,
-            longitude: -49.2914821
+            latitude: -25.437796,
+            longitude: -49.288808
           },
         },
       },
@@ -102,7 +102,7 @@ Meteor.methods({
         'password': 'test',
         'profile': {
           name: 'Apple',
-          estimateBornDate: new Date(2016, 05, 20),
+          estimateBornDate: new Date(2016, 05, 25),
           maternityLocation: {
             latitude: -25.4379213,
             longitude: -49.2914821
@@ -122,5 +122,18 @@ Meteor.methods({
     for (var i = 0; i < users.length; i++) {
       Accounts.createUser(users[i]);
     }
+  },
+
+  changeUserMaternityLocation: function(userId, lat, lng) {
+    var user = Meteor.users.findOne({_id: userId});
+    if(!user) {
+      throw new Meteor.Error(404, 'user not found');
+    }
+    Meteor.users.update({_id: userId}, 
+      {$set: {
+        'profile.maternityLocation.latitude': lat,
+        'profile.maternityLocation.latitude': lng,
+      }}
+    );
   }
 });

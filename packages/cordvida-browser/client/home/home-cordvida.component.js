@@ -6,9 +6,9 @@ angular.module('cordvida.browser').directive('homeCordvida', function () {
     controller: function ($scope, $reactive, $state) {
       $reactive(this).attach($scope);
 
-      this.logout = () => {
-        Accounts.logout();
-        $state.go('login');
+      this.goToNewUserPage = () => {
+        console.log('going to new user page');
+        $state.go('newUsers');
       }
     }
   }

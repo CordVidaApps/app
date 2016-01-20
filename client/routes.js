@@ -10,6 +10,18 @@ angular.module('cordvida').config(function ($urlRouterProvider, $stateProvider, 
       url: '/users/:userId',
       template: '<user-details></user-details>',
     })
+    .state('newUsers', {
+      url: '/newUsers',
+      template: '<new-users></new-users>',
+      resolve: {
+        currentUser: ($q) => {
+          console.log('%%%%%%%%%%% RESOLVE FUNCTION');
+          
+            return $q.resolve();
+        }
+
+      }
+    })
     .state('login', {
       url: '/login',
       template: '<login></login>'

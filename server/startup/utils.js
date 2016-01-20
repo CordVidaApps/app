@@ -129,10 +129,29 @@ Meteor.methods({
     if(!user) {
       throw new Meteor.Error(404, 'user not found');
     }
+
+    console.log('CHANGING USER MATERNITY LOCATION', lat, lng);
+
     Meteor.users.update({_id: userId}, 
       {$set: {
         'profile.maternityLocation.latitude': lat,
-        'profile.maternityLocation.latitude': lng,
+        'profile.maternityLocation.longitude': lng,
+      }}
+    );
+  },
+
+  changeUserEstimateBirthDate: function(userId, day, month, year) {
+    var user = Meteor.users.findOne({_id: userId});
+    if(!user) {
+      throw new Meteor.Error(404, 'user not found');
+    }
+
+    var date = new Date(year, month, day);
+    console.log('CHANGING USER BIRTH DATE', date);
+
+    Meteor.users.update({_id: userId}, 
+      {$set: {
+        'profile.estimateBornDate': date,
       }}
     );
   }

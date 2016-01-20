@@ -32,10 +32,19 @@ Package.onUse(function(api) {
     'client/users/user-item/user-item.html',
     'client/users/user-details/user-details.component.js',
     'client/users/user-details/user-details.html',
+    
+    'client/users/new-users/new-users.component.js',
+    'client/users/new-users/new-users.html',
+    'client/users/new-users/user-form.component.js',
+    'client/users/new-users/user-form.html',
+    'client/users/new-users/styles/new-users.less',
+    
     'client/users/styles/google-maps.css',
 
+    'client/google-maps/google-maps.js',
     'client/home/home-cordvida.component.js',
     'client/home/home-cordvida.html',
+    'client/home/styles/home-cordvida.less',
 
   ], 'web.browser');
 });

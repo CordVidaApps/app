@@ -20,10 +20,10 @@ angular.module('cordvida.mobile').factory('BackgroundLocation',
 
         // BackgroundGeoLocation is highly configurable. See platform specific configuration options
         $window.plugins.backgroundGeoLocation.configure(callbackFn, failureFn, {
-          desiredAccuracy: 10,
-          stationaryRadius: 20,
+          desiredAccuracy: 0,
+          stationaryRadius: 100,
           distanceFilter: 10,
-          debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
+          debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
           stopOnTerminate: false, // <-- enable this to clear background location settings when the app terminates
         });
 

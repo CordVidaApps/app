@@ -1,0 +1,51 @@
+<md-content layout="row" layout-align="start center" layout-padding>
+  <form name="newUserForm" layout="column" flex="60" autocomplete="off">
+    <md-input-container>
+      <label>Nome</label>
+      <input name="name" ng-model="userForm.user.profile.name" placeholder="" required>
+      <div ng-messages="newUserForm.name.$error">
+        <div ng-message="required">Campo obrigatório</div>
+      </div>
+    </md-input-container>
+
+    <md-input-container>
+      <label>Email</label>
+      <input name="email" ng-model="userForm.user.email" placeholder="" required>
+      <div ng-messages="newUserForm.email.$error">
+        <div ng-message="required">Campo obrigatório</div>
+      </div>
+    </md-input-container>
+
+    <md-input-container>
+      <label>Password</label>
+      <input name="password" ng-model="userForm.user.password" placeholder="" required>
+      <div ng-messages="newUserForm.password.$error">
+        <div ng-message="required">Campo obrigatório</div>
+      </div>
+    </md-input-container>
+
+    <md-content layout="row" layout-align="start center">
+      <label class="date-picker-label">Data Prevista de Nascimento</label>
+      <md-datepicker ng-model="userForm.user.profile.estimateBornDate" placeholder="">
+      </md-datepicker>
+    </md-content>
+
+    <md-input-container>
+      <label>Endereço da Maternidade</label>
+      <input id="addressInput" name="maternityAddress" 
+        ng-disabled="userForm.mapEnabled" required placeholder="" autocomplete="off">
+      <div ng-messages="newUserForm.maternityAddress.$error">
+        <div ng-message="required">Campo obrigatório</div>
+      </div>
+    </md-input-container>
+
+    <md-button ng-click="userForm.saveUser()" ng-disabled="newUserForm.$invalid">
+      Criar Usuário
+    </md-button>
+  </form>
+
+  <md-content class="google-map-container" flex="40">
+    <div ni-if="userForm.mapsEnabled" id="new-user-map" data-tap-disabled="true">
+    </div>
+  </md-content>
+</md-content>

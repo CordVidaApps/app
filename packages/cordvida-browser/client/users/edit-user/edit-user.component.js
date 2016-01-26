@@ -14,6 +14,8 @@ angular.module('cordvida.browser').directive('editUser', function() {
         },
       });
 
+      this.subscribe('users');
+
     }
   }
 });

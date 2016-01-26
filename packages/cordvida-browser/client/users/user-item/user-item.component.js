@@ -25,7 +25,7 @@ angular.module('cordvida.browser').directive('userItem', function() {
       }
 
       this.userStatus = () => {
-        return this.user && this.user.status;
+        return this.user && this.user.profile.status;
       }
 
       this.estimateBornDate = () => {

@@ -96,7 +96,12 @@ angular.module('cordvida.browser').directive('userForm', function() {
         (res) => {
           console.log('google maps iniciado com sucesso', res);
           this.mapsEnabled = true;
-          this.initMap(-15.7833, -47.8667, 4);
+          if(this.createUserForm){
+            this.initMap(-15.7833, -47.8667, 4);
+          } else if(this.editUserForm) {
+            this.initMap(this.user.profile.maternityLocation.latitude, 
+              this.user.profile.maternityLocation.longitude, 15);
+          }
           this.initAutocomplete();
         }, 
         (err) => {

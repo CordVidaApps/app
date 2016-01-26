@@ -12,8 +12,9 @@
         </div>
         <md-divider></md-divider>
       </md-list-item>
-      <md-list-item ng-repeat="user in usersList.users">
-        <user-item user="user" layout="row" layout-align="start center" layout-padding flex></user-item>
+      <md-list-item ng-if="usersList.users" ng-repeat="user in usersList.users">
+        <user-item user="user" layout="row" layout-align="start center" layout-padding flex>
+        </user-item>
         <md-divider></md-divider>
       </md-list-item>
     </md-list>

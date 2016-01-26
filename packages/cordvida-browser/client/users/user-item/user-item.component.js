@@ -8,7 +8,7 @@ angular.module('cordvida.browser').directive('userItem', function() {
     },
     controller: function($scope, $reactive, $state) {
       $reactive(this).attach($scope);
-
+ 
       this.helpers({
         user: function () {
           return $scope.user;
@@ -18,6 +18,11 @@ angular.module('cordvida.browser').directive('userItem', function() {
       this.goToUser = (user) => {
         $state.go('userDetails', {userId: this.user._id});
       };
+
+      this.goToEditpage = (user) => {
+        console.log('going to edit user page');
+        $state.go('editUser', {userId: this.user._id});
+      }
 
       this.userStatus = () => {
         return this.user && this.user.status;

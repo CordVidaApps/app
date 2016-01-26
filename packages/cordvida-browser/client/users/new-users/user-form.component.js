@@ -8,10 +8,10 @@ angular.module('cordvida.browser').directive('userForm', function() {
     },
     controller: function($scope, $state, $reactive, GoogleMaps) {
       $reactive(this).attach($scope);
-      console.log('user form');
       
-      if(!this.user) {
+      if(!$scope.user) {
         console.log('&&&&&&&&&&& user undefined!');
+        this.createUserForm = true;
         this.user = {
           email: '',
           password: '',
@@ -23,6 +23,10 @@ angular.module('cordvida.browser').directive('userForm', function() {
             maternityAddress: ''
           }
         }
+      } else {
+        this.user = $scope.user;
+        this.editUserForm = true;
+        console.log('&&&&&&&&&&& user defined!', this.user);
       }
 
       this.saveUser = () => {
@@ -35,6 +39,19 @@ angular.module('cordvida.browser').directive('userForm', function() {
             $state.go('users');
           }
         })
+      }
+
+      this.editUser = () => {
+        console.log('editing user', this.user);
+        Meteor.call('editUser', this.user, (err, result) => {
+          if(err) {
+            console.log('error editing', err);
+          }
+          if(result) {
+            console.log('editing successful', result);
+            $state.go('users');
+          }
+        });
       }
 
       this.initMap = (lat, lng, zoom) => {

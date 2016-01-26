@@ -35,6 +35,8 @@ Package.onUse(function(api) {
     
     'client/users/new-users/new-users.component.js',
     'client/users/new-users/new-users.html',
+    'client/users/edit-user/edit-user.component.js',
+    'client/users/edit-user/edit-user.html',
     'client/users/new-users/user-form.component.js',
     'client/users/new-users/user-form.html',
     'client/users/new-users/styles/new-users.less',

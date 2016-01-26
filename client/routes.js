@@ -10,6 +10,10 @@ angular.module('cordvida').config(function ($urlRouterProvider, $stateProvider, 
       url: '/users/:userId',
       template: '<user-details></user-details>',
     })
+    .state('editUser', {
+      url: '/editUser/:userId',
+      template: '<edit-user></edit-user>',
+    })
     .state('newUsers', {
       url: '/newUsers',
       template: '<new-users></new-users>',

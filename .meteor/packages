@@ -30,3 +30,5 @@ momentjs:moment
 planettraining:material-design-icons
 email
 gfk:mailgun-api
+iron:router
+meteorhacks:ssr

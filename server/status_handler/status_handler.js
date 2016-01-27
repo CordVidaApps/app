@@ -13,7 +13,7 @@ Scores.after.insert(function(userId, score) {
   // if user signalled a recent false alarm, nothing needs to be done
   if(user.falseAlarmTime) {
     var diff = moment().diff(moment(user.falseAlarmTime), 'hours');
-    if(diff <= 24) return;
+    if(diff <= 6) return;
   }
 
   // calculate aggregated score
@@ -49,22 +49,22 @@ Scores.after.insert(function(userId, score) {
 
   if(aggregatedScore < ATTENTION_THRESHOLD) {
     _.extend(updateObj, {
-      status: 'normal',
+      'profile.status': 'normal',
     });
   }
 
   if(aggregatedScore > ATTENTION_THRESHOLD && aggregatedScore < URGENCY_THRESHOLD) {
     console.log('******** ATTENTION STATUS');
     _.extend(updateObj, {
-      status: 'attention',
-      attentionTime: new Date()
+      'profile.status': 'attention',
+      'profile.attentionTime': new Date()
     });
   }
   else if(aggregatedScore > URGENCY_THRESHOLD) {
     console.log('******** URGENCY STATUS');
     _.extend(updateObj, {
-      status: 'urgency',
-      urgencyTime: new Date()
+      'profile.status': 'urgency',
+      'profile.urgencyTime': new Date()
     });
   }
 
@@ -79,11 +79,11 @@ Scores.after.insert(function(userId, score) {
 Meteor.users.after.update(function (userId, doc, fieldNames, modifier, options) {
   console.log('$$$$$$$$$$$$$ AFTER USER UPDATE HOOK', userId, fieldNames, doc.status, this.previous.status);
 
-  if(!_.contains(fieldNames, 'status')) return;
+  if(!_.contains(fieldNames, 'profile')) return;
 
-  if(this.previous.status === 'urgency') return;
+  if(this.previous.profile.status === 'urgency') return;
 
-  if(doc.status === 'urgency') {
+  if(doc.profile.status === 'urgency') {
     console.log("%%%%%%%%%%%%%%%%%%%%%%% email");
 
     CordvidaMailgun.send({

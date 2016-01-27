@@ -36,6 +36,7 @@ angular.module('cordvida.browser').directive('userForm', function() {
             console.log('save user error', err);
           } else {
             console.log('user saved success');
+            Meteor.call('sendWelcomeEmail', this.user.email);
             $state.go('users');
           }
         })

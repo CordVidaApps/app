@@ -32,24 +32,35 @@ angular.module("cordvida.mobile").directive('info', function() {
 
       this.userStatus = () => {
         if(!this.user) return;
-        if(this.user.status === 'normal') return 'Normal';
-        if(this.user.status === 'attention') return 'Atenção';
-        if(this.user.status === 'urgency') return 'Urgente';
+        if(this.user.profile.status === 'normal') return 'Normal';
+        if(this.user.profile.status === 'attention') return 'Atenção';
+        if(this.user.profile.status === 'urgency') return 'Urgente';
+      }
+
+      this.userMaternityAddress = () => {
+        if(!this.user) return;
+        return this.user.profile.maternityAddress;
       }
 
       this.isStatusNormal = () => {
         if(!this.user) return;
-        return this.user.status === 'normal';
+        return this.user.profile.status === 'normal';
       }
 
       this.isStatusAttention = () => {
         if(!this.user) return;
-        return this.user.status === 'attention';
+        return this.user.profile.status === 'attention';
       }
 
       this.isStatusUrgency = () => {
         if(!this.user) return;
-        return this.user.status === 'urgency';
+        return this.user.profile.status === 'urgency';
+      }
+
+      this.hasConfirmationTime = () => {
+        if(!this.user) return false;
+        if(!this.user.profile.confirmationTime) return false;
+        return true;
       }
 
       this.showConfirmation = () => {

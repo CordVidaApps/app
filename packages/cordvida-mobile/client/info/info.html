@@ -33,33 +33,23 @@
         <div id="hospMap" data-tap-disabled="true"></div>
       </div>
       <div class="item address-footer">
-        <p>Hospital São Lucas</p>
         <div class="address">
-          <span>Av. João Gualberto, 1946, Curitiba</span>
+          <span>{{info.userMaternityAddress()}}</span>
         </div>
       </div>
     </div>
 
     <div class="urgent-button">
-      <button ng-if="!info.isStatusUrgency()" class="button button-block button-dark" 
-        ng-click="info.showConfirmation()">
+      <button ng-if="info.isStatusNormal() || info.isStatusAttention()" 
+        class="button button-block button-dark" ng-click="info.showConfirmation()">
         <p>ESTAMOS INDO PARA A MATERNIDADE!</p>
       </button>
       <button ng-if="info.isStatusUrgency()" class="button button-block button-assertive" 
-        ng-click="info.showFalseAlarmConfirmation()">
+        ng-click="info.showFalseAlarmConfirmation()" ng-disabled="info.hasConfirmationTime()">
         <p>ALARME FALSO!</p>
       </button>
     </div>
 
   </ion-content>
-  <!--
-  <ion-footer-bar class="home-footer">
-    <button ng-if="!info.isStatusUrgency()" class="button button-block button-dark" ng-click="info.showConfirmation()">
-      <p>ESTAMOS INDO PARA A MATERNIDADE!</p>
-    </button>
-    <button ng-if="info.isStatusUrgency()" class="button button-block button-assertive" ng-click="info.showFalseAlarmConfirmation()">
-      <p>ALARME FALSO!</p>
-    </button>
-  </ion-footer-bar>
-  -->
+  
 </ion-view>

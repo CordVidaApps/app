@@ -28,6 +28,28 @@ angular.module('cordvida.browser').directive('userItem', function() {
         return this.user && this.user.profile.status;
       }
 
+      this.isStatusNormal = () => {
+        return this.user && this.user.profile.status === 'normal';
+      }
+
+      this.hasConfirmationTime = () => {
+        if(!this.user) return false;
+        if(!this.user.profile.confirmationTime) return false;
+        return true;
+      }
+
+      this.setFalseAlarm = () => {
+        Meteor.call('falseAlarm', this.user._id);
+      }
+
+      this.confirmUrgency = () => {
+        Meteor.call('confirmUrgency', this.user._id);
+      }
+
+      this.cancelUrgencyConfirmation = () => {
+        Meteor.call('cancelUrgencyConfirmation', this.user._id);
+      }
+
       this.estimateBornDate = () => {
         return this.user && moment(this.user.profile.estimateBornDate).format('DD/MM/YYYY');
       };

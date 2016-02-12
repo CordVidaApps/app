@@ -7,6 +7,21 @@
 <span flex="10">{{userItem.aggregatedScore()}}</span>
 <span flex="10">{{userItem.timeFromLastLocation()}}</span>
 
-<md-button ng-click="userItem.goToEditpage(user)" flex="20">
+<md-button ng-if="userItem.isStatusNormal()" ng-click="userItem.goToEditpage(user)" flex="20">
   <span>Editar Usuário</span>
+</md-button>
+
+<md-button ng-if="!userItem.isStatusNormal() && !userItem.hasConfirmationTime()" 
+  ng-click="userItem.setFalseAlarm()" flex="20">
+  <span>Alarme Falso</span>
+</md-button>
+
+<md-button ng-if="!userItem.isStatusNormal() && !userItem.hasConfirmationTime()" 
+  ng-click="userItem.confirmUrgency()" flex="20">
+  <span>Confirmar Urgencia</span>
+</md-button>
+
+<md-button ng-if="!userItem.isStatusNormal() && userItem.hasConfirmationTime()" 
+  ng-click="userItem.cancelUrgencyConfirmation()" flex="20">
+  <span>Cancelar Confirmação</span>
 </md-button>

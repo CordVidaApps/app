@@ -6,10 +6,10 @@ App.accessRule('*.gstatic.com/*');
 // This section sets up some basic app metadata,
 // the entire section is optional.
 App.info({
-  id: 'br.com.plraphael.cordvida',
+  id: 'com.cordvida.app',
   name: 'CordVida',
   description: 'Aplicativo da CordVida.',
-  version: "0.15"
+  version: "0.0.1"
 });
 
 // Set PhoneGap/Cordova preferences
@@ -17,6 +17,10 @@ App.setPreference('HideKeyboardFormAccessoryBar', true);
 App.setPreference('hideKeyboardAccessoryBar', true);
 App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#9a2d42');
+
+// Transistor software background geolocation info
+App.setPreference('cordova-background-geolocation-license', '247aa055af8afef2453dc119e97c6a42dd9f2eb2cdfecf58f5df2eb0c0edbd19');
+App.setPreference('cordova-background-geolocation-orderId', '2543133377');
 
 // // Set up resources such as icons and launch screens.
 App.icons({

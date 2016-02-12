@@ -83,7 +83,7 @@ angular.module("cordvida.mobile").directive('info', function() {
         confirmPopup.then(function(res) {
           if(res) {
             console.log('soar o alarme');
-            Meteor.call('chanceToEmergencyStatus');
+            Meteor.call('chanceToEmergencyStatus', this.user._id);
           } else {
             console.log('Alarme falso');
           }
@@ -109,7 +109,7 @@ angular.module("cordvida.mobile").directive('info', function() {
         confirmPopup.then(function(res) {
           if(res) {
             console.log('soar o alarme');
-            Meteor.call('falseAlarm');
+            Meteor.call('falseAlarm', this.user._id);
           } else {
             console.log('cancelar');
           }

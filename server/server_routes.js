@@ -1,22 +1,27 @@
-Router.route( "/sendLocations", { where: "server" } )
-  .get( function() {
-    // If a GET request is made, return the user's profile.
-  })
-  .post( function() {
-    // If a POST request is made, create the user's profile.
-    console.log('SEND LOCATIONS POST FUNCTION ---------------');
-    console.log('THIS.params ->', this.params);
-    console.log('THIS.REQUEST.query ->', this.request.query);
-    console.log('THIS.REQUEST.BODY ->', this.request.body);
+// Include the body-parser NPM package using the Meteor.npmRequire method we
+// get from the meteorhacks:npm package.
+var bodyParser = Meteor.npmRequire( 'body-parser' );
 
-    this.response.statusCode = 200;
-    this.response.end();
-  })
-  .put( function() {
-    // If a PUT request is made, either update the user's profile or
-   // create it if it doesn't already exist.
-  })
-  .delete( function() {
-   // If a DELETE request is made, delete the user's profile.
-  }
-);
+// Define our middleware using the Picker.middleware() method.
+Picker.middleware( bodyParser.json() );
+Picker.middleware( bodyParser.urlencoded( { extended: false } ) );
+
+Picker.route('/sendLocations', function(params, request, response, next) {
+  
+  var data = {
+    params: params,
+    query: params.query,
+    body: request.body
+  };
+
+  console.log("SEND LOCATIONS DATA --->", data);
+
+  var location = data.body.location;
+  var userId = data.body.auth_token;
+
+  Meteor.call('insertLocation', location, userId);
+
+  response.setHeader( 'Content-Type', 'application/json' );
+  response.statusCode = 200;
+  response.end( "Hello!" );
+});

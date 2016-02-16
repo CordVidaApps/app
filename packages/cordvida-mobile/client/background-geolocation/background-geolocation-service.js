@@ -57,7 +57,7 @@ angular.module('cordvida.mobile').factory('BackgroundLocation',
                 "X-FOO": "bar"
             },
             params: {
-                "auth_token": "maybe_your_server_authenticates_via_token_YES?"
+                "auth_token": Meteor.userId(),
             }
         });
 

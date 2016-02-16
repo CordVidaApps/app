@@ -1,7 +1,7 @@
 
 Locations.after.insert(function(userId, location) {
-  console.log('%%%%%%%%%%%%%%% tracker analisys', userId, location);
-  var user = Meteor.user();
+  console.log('%%%%%%%%%%%%%%% tracker analisys', location.userId, location);
+  var user = Meteor.users.findOne({_id: location.userId});
   if(!user) {
     throw new Meteor.Error(404, 'Error 404: User Not found');
   }
@@ -27,7 +27,7 @@ Locations.after.insert(function(userId, location) {
 
 
   var score = {
-    userId: userId,
+    userId: location.userId,
     scoreValue: scoreValue,
     distance: dist,
     remainingDays: remainingDays,

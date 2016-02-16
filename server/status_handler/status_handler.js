@@ -1,6 +1,6 @@
 Scores.after.insert(function(userId, score) {
-  console.log('AFTER SCORE INSERT HOOK', userId, score);
-  var user = Meteor.users.findOne({_id: userId});
+  console.log('AFTER SCORE INSERT HOOK', score.userId, score);
+  var user = Meteor.users.findOne({_id: score.userId});
   if(!user) {
     throw new Meteor.Error(404, 'User Not found');    
   }
@@ -21,7 +21,7 @@ Scores.after.insert(function(userId, score) {
   var timeThreshold = moment().subtract(3, 'hours').toDate();
   var scores = Scores.find(
     {
-      userId: userId,
+      userId: score.userId,
       createdAt: { $gt: timeThreshold }
     }, 
     {
@@ -69,7 +69,7 @@ Scores.after.insert(function(userId, score) {
   }
 
   // update user
-  Meteor.users.update({_id: userId}, {$set: updateObj}, 
+  Meteor.users.update({_id: score.userId}, {$set: updateObj}, 
     function(err, res){
     console.log('************ user updated', err, res);
   });

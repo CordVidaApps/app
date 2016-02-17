@@ -83,7 +83,14 @@ angular.module("cordvida.mobile").directive('info', function() {
         confirmPopup.then(function(res) {
           if(res) {
             console.log('soar o alarme');
-            Meteor.call('chanceToEmergencyStatus', this.user._id);
+            Meteor.call('chanceToEmergencyStatus', (err, res) => {
+              if(err) {
+                console.log('erro ao mudar status', err);
+              }
+              if(res) {
+                console.log('mudança de status bem-sucedida', res);
+              }
+            });
           } else {
             console.log('Alarme falso');
           }
@@ -109,7 +116,14 @@ angular.module("cordvida.mobile").directive('info', function() {
         confirmPopup.then(function(res) {
           if(res) {
             console.log('soar o alarme');
-            Meteor.call('falseAlarm', this.user._id);
+            Meteor.call('falseAlarm', (err, res) => {
+              if(err) {
+                console.log('erro ao mudar status', err);
+              }
+              if(res) {
+                console.log('mudança de status bem-sucedida', res);
+              }
+            });
           } else {
             console.log('cancelar');
           }

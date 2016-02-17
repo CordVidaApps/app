@@ -86,20 +86,7 @@ Meteor.users.after.update(function (userId, doc, fieldNames, modifier, options) 
   if(doc.profile.status === 'urgency') {
     console.log("%%%%%%%%%%%%%%%%%%%%%%% email");
 
-    CordvidaMailgun.send({
-      'to': doc.emails[0].address,
-      'from': doc.emails[0].address,
-      'subject':  "Mudança de Status",
-      'text': "Seu status mudou de " + this.previous.status + 
-        " para urgente."  + ". Entraremos em contato em instantes.",
-    });
-    CordvidaMailgun.send({
-      'to': 'pedroluis.raphael@gmail.com',
-      'from': doc.emails[0].address,
-      'subject':  "Mudança de Status",
-      'text': "Seu status mudou de " + this.previous.status + 
-        " para urgente."  + ". Entraremos em contato em instantes.",
-    });
+    Meteor.call('sendStatusChangedEmail', userId, this.previous.profile.status, doc.profile.status);
   }
 
 });

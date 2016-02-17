@@ -17,14 +17,6 @@
       </div>
     </md-input-container>
 
-    <md-input-container ng-if="userForm.createUserForm">
-      <label>Password</label>
-      <input name="password" ng-model="userForm.user.password" placeholder="" required>
-      <div ng-messages="newUserForm.password.$error">
-        <div ng-message="required">Campo obrigatório</div>
-      </div>
-    </md-input-container>
-
     <md-content layout="row" layout-align="start center">
       <label class="date-picker-label">Data Prevista de Nascimento</label>
       <md-datepicker ng-model="userForm.user.profile.estimateBornDate" placeholder="">

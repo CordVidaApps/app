@@ -3,7 +3,7 @@ angular.module('cordvida.browser').directive('usersList', function() {
     restrict: 'E',
     templateUrl: '/packages/cordvida-browser/client/users/users-list/users-list.html',
     controllerAs: 'usersList',
-    controller: function($scope, $reactive) {
+    controller: function($scope, $reactive, $state) {
       $reactive(this).attach($scope);
 
       this.helpers({
@@ -21,6 +21,11 @@ angular.module('cordvida.browser').directive('usersList', function() {
       });
 
       this.subscribe('users');
+
+      this.goToNewUserPage = () => {
+        console.log('going to new user page');
+        $state.go('newUsers');
+      }
     }
   }
 });

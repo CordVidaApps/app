@@ -1,3 +1,18 @@
+Accounts.emailTemplates.siteName = "CordVida";
+Accounts.emailTemplates.from = "CordVida Admin <no-reply@cordvida.com.br>";
+Accounts.emailTemplates.enrollAccount.subject = function (user) {
+    return "Bem vindo à CordVida.";
+};
+Accounts.emailTemplates.enrollAccount.html = function (user, url) {
+  SSR.compileTemplate( 'htmlWelcomeEmail', Assets.getText( 'welcome-email-template.html' ) );
+  var emailData = {
+    email: user.emails[0].address,
+    url: url.replace( '#/', '' ),
+  };
+  return SSR.render( 'htmlWelcomeEmail', emailData );
+};
+
+
 Meteor.methods({
   sendWelcomeEmail: function (userEmail) {
     var user = Accounts.findUserByEmail(userEmail);

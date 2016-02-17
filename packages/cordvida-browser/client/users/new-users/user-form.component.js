@@ -14,7 +14,6 @@ angular.module('cordvida.browser').directive('userForm', function() {
         this.createUserForm = true;
         this.user = {
           email: '',
-          password: '',
           profile: {
             name: '',
             status: 'normal', 
@@ -31,12 +30,11 @@ angular.module('cordvida.browser').directive('userForm', function() {
 
       this.saveUser = () => {
         console.log('saving user', this.user);
-        Accounts.createUser(this.user, (err) => {
+        Meteor.call('createNewUser', this.user, (err, res) => {
           if(err) {
             console.log('save user error', err);
           } else {
             console.log('user saved success');
-            Meteor.call('sendWelcomeEmail', this.user.email);
             $state.go('users');
           }
         })

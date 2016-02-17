@@ -26,6 +26,14 @@ angular.module('cordvida').config(function ($urlRouterProvider, $stateProvider, 
 
       }
     })
+    .state('enroll-account', {
+      url: '/enroll-account/:token',
+      template: '<reset-password></reset-password>',
+    })
+    .state('password-reset-success', {
+      url: '/password-reset-success',
+      template: '<reset-password-success></reset-password-success>',
+    })
     .state('login', {
       url: '/login',
       template: '<login></login>'

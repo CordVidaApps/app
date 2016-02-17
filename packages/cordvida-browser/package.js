@@ -23,6 +23,8 @@ Package.onUse(function(api) {
 
     'client/styles/main.less',
 
+    'client/utils/compare-to.component.js',
+
     'client/auth/login/login.component.js',
     'client/auth/login/login.html',
 
@@ -32,6 +34,13 @@ Package.onUse(function(api) {
     'client/users/user-item/user-item.html',
     'client/users/user-details/user-details.component.js',
     'client/users/user-details/user-details.html',
+    
+    'client/users/reset-password/reset-password.component.js',
+    'client/users/reset-password/reset-password.html',
+    'client/users/reset-password/styles/reset-password.less',
+    
+    'client/users/reset-password/reset-password-success.component.js',
+    'client/users/reset-password/reset-password-success.html',
     
     'client/users/new-users/new-users.component.js',
     'client/users/new-users/new-users.html',

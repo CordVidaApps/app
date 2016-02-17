@@ -1,7 +1,8 @@
 Accounts.emailTemplates.siteName = "CordVida";
 Accounts.emailTemplates.from = "CordVida Admin <no-reply@cordvida.com.br>";
+
 Accounts.emailTemplates.enrollAccount.subject = function (user) {
-    return "Bem vindo à CordVida.";
+    return "Bem vindo à CordVida";
 };
 Accounts.emailTemplates.enrollAccount.html = function (user, url) {
   SSR.compileTemplate( 'htmlWelcomeEmail', Assets.getText( 'welcome-email-template.html' ) );
@@ -10,6 +11,18 @@ Accounts.emailTemplates.enrollAccount.html = function (user, url) {
     url: url.replace( '#/', '' ),
   };
   return SSR.render( 'htmlWelcomeEmail', emailData );
+};
+
+Accounts.emailTemplates.resetPassword.subject = function (user) {
+    return "Solitação para trocar a senha - CordVida";
+};
+Accounts.emailTemplates.resetPassword.html = function (user, url) {
+  SSR.compileTemplate( 'htmlResetPasswordEmail', Assets.getText( 'reset-password-email-template.html' ) );
+  var emailData = {
+    email: user.emails[0].address,
+    url: url.replace( '#/', '' ),
+  };
+  return SSR.render( 'htmlResetPasswordEmail', emailData );
 };
 
 

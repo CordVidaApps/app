@@ -27,7 +27,7 @@ angular.module('cordvida.mobile').factory('BackgroundLocation',
         // BackgroundGeoLocation is highly configurable.
         bgGeo.configure(callbackFn, failureFn, {
             // Geolocation config
-            desiredAccuracy: 0,
+            desiredAccuracy: 10,
             stationaryRadius: 50,
             distanceFilter: 25,
             disableElasticity: false, // <-- [iOS] Default is 'false'.  Set true to disable speed-based distanceFilter elasticity

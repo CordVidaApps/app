@@ -35,7 +35,8 @@ angular.module('cordvida.browser').factory('GoogleMaps',
     return {
       init: function(){
         q = $q.defer();
-        if(typeof google == "undefined" || typeof google.maps == "undefined"){
+        if(typeof google == "undefined" || typeof google.maps == "undefined" || 
+            typeof google.maps.places == "undefined"){
           console.warn("Google Maps SDK needs to be loaded");
           loadGoogleMaps();
         }

@@ -12,6 +12,7 @@ Meteor.methods({
     Meteor.users.update({_id: userId}, 
       {$set: {
         status: 'normal',
+        'profile.status': 'normal',    
         aggregatedScore: 0,
       }, $unset: {
         falseTimeAlarm: '',

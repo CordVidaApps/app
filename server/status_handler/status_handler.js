@@ -86,7 +86,7 @@ Meteor.users.after.update(function (userId, doc, fieldNames, modifier, options) 
   if(doc.profile.status === 'urgency') {
     console.log("%%%%%%%%%%%%%%%%%%%%%%% email");
 
-    Meteor.call('sendStatusChangedEmail', userId, this.previous.profile.status, doc.profile.status);
+    Meteor.call('sendStatusChangedEmail', doc._id, this.previous.profile.status, doc.profile.status);
   }
 
 });

@@ -8,4 +8,21 @@ Meteor.startup(function () {
     domain: 'sandboxa6e66c4198ac49dfb01f50b5711287c2.mailgun.org'
   }
   CordvidaMailgun = new Mailgun(options);
+
+
+  SyncedCron.add({
+    name: 'Remove locations after a day',
+    schedule: function(parser) {
+      // parser is a later.parse object
+      return parser.text('at 04:15 am');
+    },
+    job: function() {
+      var yesterday = moment().subtract(1,'day').toDate();
+      console.log('CRON JOB  -  YESTERDAY', yesterday);
+      Locations.remove({date: { $lte : yesterday }});
+      Scores.remove({createdAt: { $lte : yesterday }});
+    }
+  });
+
+  SyncedCron.start();
 });

@@ -78,6 +78,7 @@ okland:accounts-phone@0.0.21
 ordered-dict@1.0.4
 outatime:geolib@2.0.15
 pbastowski:angular-babel@1.0.9
+percolate:synced-cron@1.3.0
 planettraining:material-design-icons@2.1.1
 promise@0.5.1
 random@1.0.5

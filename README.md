@@ -8,9 +8,9 @@ Repositório inicial do projeto CordVida.
 ## Build
 
 - mup deploy
-- meteor build .build/local/ --server=http://ec2-52-34-218-255.us-west-2.compute.amazonaws.com/
+- meteor build .build/local/ --server=http://app.cordvida.com.br/
 - cd .build/local/android/
-- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 release-unsigned.apk cordvida
+- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 release-unsigned.apk cordvida-app
 - rm production.apk
 - ~/.meteor/android_bundle/android-sdk/build-tools/20.0.0/zipalign 4 release-unsigned.apk production.apk
 

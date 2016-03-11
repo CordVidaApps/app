@@ -1,5 +1,5 @@
 Accounts.emailTemplates.siteName = "CordVida";
-Accounts.emailTemplates.from = "CordVida Admin <no-reply@cordvida.com.br>";
+Accounts.emailTemplates.from = "Suporte CordVida <suporte@cordvida.com.br>";
 
 Accounts.emailTemplates.enrollAccount.subject = function (user) {
     return "Bem vindo à CordVida";

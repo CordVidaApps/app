@@ -2,11 +2,11 @@
   // Server authentication info
   "servers": [
     {
-      "host": "52.34.218.255",
+      "host": "54.233.125.184",
       "username": "ubuntu",
       //"password": "password"
       // or pem file (ssh based authentication)
-      "pem": "~/.ssh/cordvida-privatekey.pem"
+      "pem": "~/.ssh/cordvida-app.pem"
     }
   ],
 
@@ -35,7 +35,7 @@
   // Configure environment
   "env": {
     "PORT": 80,
-    "ROOT_URL": "http://ec2-52-34-218-255.us-west-2.compute.amazonaws.com",
+    "ROOT_URL": "http://app.cordvida.com.br",
     "MONGO_URL": "mongodb://localhost:27017/cordvida"
   },
 

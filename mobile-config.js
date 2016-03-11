@@ -16,7 +16,7 @@ App.info({
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 App.setPreference('hideKeyboardAccessoryBar', true);
 App.setPreference('StatusBarOverlaysWebView', 'false');
-App.setPreference('StatusBarBackgroundColor', '#9a2d42');
+App.setPreference('StatusBarBackgroundColor', '#A53B3F');
 
 // Transistor software background geolocation info
 App.setPreference('cordova-background-geolocation-license', '247aa055af8afef2453dc119e97c6a42dd9f2eb2cdfecf58f5df2eb0c0edbd19');

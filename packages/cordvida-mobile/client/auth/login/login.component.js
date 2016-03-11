@@ -40,9 +40,10 @@ angular.module("cordvida.mobile").directive('login', function() {
         
         // An elaborate, custom popup
         var myPopup = $ionicPopup.show({
-          template: '<input type="email" ng-model="login.resetPasswordEmail" placeholder="joaosilva@cordvida.com.br">',
-          title: 'Solitação de Alteração de Senha',
-          subTitle: 'Por favor, coloque seu e-mail e te enviaremos instruções sobre como alterar sua senha.',
+          template: '<input class="reset-password-input" type="email" ng-model="login.resetPasswordEmail" placeholder="E-mail">',
+          title: 'Alteração de Senha',
+          subTitle: 'Por favor confirme seu e-mail que enviaremos ' + 
+                    'instruções em seguida sobre como alterar sua senha.',
           scope: $scope,
           buttons: [
             { text: 'Cancelar' },

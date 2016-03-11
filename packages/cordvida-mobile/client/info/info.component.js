@@ -101,8 +101,10 @@ angular.module("cordvida.mobile").directive('info', function() {
 
       this.showFalseAlarmConfirmation = () => {
         var confirmPopup = $ionicPopup.show({
-          title: 'Tem certeza?',
-          template: 'Clique em confirmar para caso realmente seja um alarme falso.',
+          title: 'Tem certeza que está indo para a maternidade?',
+          template: 'Se o momento do parto chegou, clique em “Confirmar”' + 
+                    ' que a Central de Coletas da CordVida será notificada' + 
+                    ' e entrará em contato em seguida.',
           scope: $scope,
           buttons: [
             { text: 'Cancelar' },

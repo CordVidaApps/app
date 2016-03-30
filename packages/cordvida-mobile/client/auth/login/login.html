@@ -1,6 +1,6 @@
 <ion-view hide-nav-bar="true">
 
-  <ion-content class="login-page" scroll="false">
+  <ion-content class="login-page">
     
     <div class="login-logo">
       <img src="/images/logo256x256.png" width="180px">
@@ -11,11 +11,13 @@
         <i class="icon ion-ios-email-outline"></i>
         <input type="email" placeholder="E-mail"
           ng-model="login.credentials.email" required />
+        <i class="icon ion-alert-circled" ng-show="login.error"></i>
       </div>
       <div class="item row row-center">
         <i class="icon ion-ios-locked-outline"></i>
         <input type="password" placeholder="Senha" 
           ng-model="login.credentials.password" required />
+        <i class="icon ion-alert-circled" ng-show="login.error"></i>
       </div>
     </form>
 

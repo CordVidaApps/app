@@ -72,6 +72,11 @@ angular.module("cordvida.mobile").directive('login', function() {
             Meteor.call('resetUserPassword', $scope.login.resetPasswordEmail, (err, res) => {
               if(err) {
                 console.log('error reseting user password', err);
+                $ionicLoading.hide();
+                $ionicLoading.show({
+                  template: 'Houve um erro ao mandar o e-mail. Verifique as informações e tente novamente.',
+                  duration: 5000,
+                });
               }
               if(res) {
                 console.log('reset password email sent');

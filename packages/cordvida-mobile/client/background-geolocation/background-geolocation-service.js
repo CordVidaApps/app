@@ -40,7 +40,7 @@ angular.module('cordvida.mobile').factory('BackgroundLocation',
             activityType: 'AutomotiveNavigation',
 
             // Application config
-            debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
+            debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
             forceReloadOnLocationChange: false,  // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when a new location is recorded (WARNING: possibly distruptive to user) 
             forceReloadOnMotionChange: false,    // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when device changes stationary-state (stationary->moving or vice-versa) --WARNING: possibly distruptive to user) 
             forceReloadOnGeofence: false,        // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when a geofence crossing occurs --WARNING: possibly distruptive to user) 
@@ -48,7 +48,7 @@ angular.module('cordvida.mobile').factory('BackgroundLocation',
             startOnBoot: true,                   // <-- [Android] Auto start background-service in headless mode when device is powered-up.
 
             // HTTP / SQLite config
-            url: 'http://ec2-52-34-218-255.us-west-2.compute.amazonaws.com/sendLocations',
+            url: 'http://app.cordvida.com.br/sendLocations',
             method: 'POST',
             batchSync: false,       // <-- [Default: false] Set true to sync locations to server in a single HTTP request.
             autoSync: true,         // <-- [Default: true] Set true to sync each location to server as it arrives.

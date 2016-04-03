@@ -9,7 +9,7 @@ App.info({
   id: 'com.cordvida.app',
   name: 'CordVida',
   description: 'Aplicativo da CordVida.',
-  version: "0.0.9"
+  version: "0.0.10"
 });
 
 // Set PhoneGap/Cordova preferences
@@ -19,8 +19,7 @@ App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#A53B3F');
 
 // Transistor software background geolocation info
-App.setPreference('cordova-background-geolocation-license', '247aa055af8afef2453dc119e97c6a42dd9f2eb2cdfecf58f5df2eb0c0edbd19');
-App.setPreference('cordova-background-geolocation-orderId', '2543133377');
+App.setPreference('cordova-background-geolocation-license', 'a1434e8b6384190318e1a786ed4588cdb6e3cc032aa66e68461d825a9a5d55de');
 
 // // Set up resources such as icons and launch screens.
 App.icons({

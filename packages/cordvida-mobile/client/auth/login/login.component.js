@@ -5,14 +5,14 @@ angular.module("cordvida.mobile").directive('login', function() {
     controllerAs: 'login',
     controller: function ($scope, $reactive, $state, $ionicLoading, $ionicPopup) {
       $reactive(this).attach($scope);
- 
+
       this.credentials = {
         email: '',
         password: ''
       };
- 
+
       this.error = '';
- 
+
       this.login = () => {
         this.error = '';
         $ionicLoading.show({
@@ -33,16 +33,23 @@ angular.module("cordvida.mobile").directive('login', function() {
         });
       };
 
+
+      this.goToTermsPage = () => {
+        console.log('go to terms page function');
+        $state.go('terms-of-service');
+      }
+
+
       this.resetPasswordEmail = '';
 
       this.forgotPassword = () => {
         console.log('forgot password link', this, $scope);
-        
+
         // An elaborate, custom popup
         var myPopup = $ionicPopup.show({
           template: '<input class="reset-password-input" type="email" ng-model="login.resetPasswordEmail" placeholder="E-mail">',
           title: 'Alteração de Senha',
-          subTitle: 'Por favor confirme seu e-mail que enviaremos ' + 
+          subTitle: 'Por favor confirme seu e-mail que enviaremos ' +
                     'instruções em seguida sobre como alterar sua senha.',
           scope: $scope,
           buttons: [

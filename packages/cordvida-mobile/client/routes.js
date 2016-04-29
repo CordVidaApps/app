@@ -20,6 +20,10 @@ $stateProvider
         }
       }
     }
+  })
+  .state('terms-of-service', {
+    url: '/terms-of-service',
+    template: '<terms-of-service></terms-of-service>',
   });
 
 $urlRouterProvider.otherwise("/info");

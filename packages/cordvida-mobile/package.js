@@ -35,6 +35,11 @@ Package.onUse(function(api) {
     'client/info/info.component.js',
     'client/info/info.html',
     'client/info/styles/info.less',
+
+
+    'client/terms-of-service/terms-of-service.component.js',
+    'client/terms-of-service/terms-of-service.html',
+    'client/terms-of-service/styles/terms-of-service.less',
   ], 'web.cordova');
 });
 

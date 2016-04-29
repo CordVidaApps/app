@@ -52,13 +52,17 @@ Meteor.methods({
       newStatus: newStatus,
     };
 
-    console.log('sending email');
+    console.log('----------------> sending email to: ', user.emails[0].address);
 
-    CordvidaMailgun.send({
+    process.env.MAIL_URL = "smtp://postmaster@app.cordvida.com.br:0c5d8205541df93e00a26ce04c2ec145@smtp.mailgun.org:587";
+
+    var res = CordvidaMailgun.send({
       to: user.emails[0].address,
-      from: "CordVida Admin <no-reply@cordvida.com.br>",
+      from: Accounts.emailTemplates.from,
       subject:  "CordVida - Alerta de Mudança de Status",
       html: SSR.render( 'htmlStatusChangedEmail', emailData ),
     });
+
+    console.log('EMAIL RESPONSE:', res);
   }
 });

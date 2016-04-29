@@ -2,11 +2,11 @@ Scores.after.insert(function(userId, score) {
   console.log('AFTER SCORE INSERT HOOK', score.userId, score);
   var user = Meteor.users.findOne({_id: score.userId});
   if(!user) {
-    throw new Meteor.Error(404, 'User Not found');    
+    throw new Meteor.Error(404, 'User Not found');
   }
 
   // if status is 'urgency', nothing needs to be done
-  if(user.status === 'urgency') {
+  if(user.profile.status === 'urgency') {
     return;
   }
 
@@ -23,7 +23,7 @@ Scores.after.insert(function(userId, score) {
     {
       userId: score.userId,
       createdAt: { $gt: timeThreshold }
-    }, 
+    },
     {
       sort: {createdAt: -1},
       limit: 20,
@@ -38,7 +38,8 @@ Scores.after.insert(function(userId, score) {
   scores.forEach(function(score){
     aggregatedScore += score.scoreValue;
   });
-  console.log('******* aggregatedScore', aggregatedScore);
+  console.log('######################################## aggregatedScore', aggregatedScore);
+  console.log('#########################################################################');
 
   // change status if aggregatedScore is bigger than thresholds
   var updateObj = {
@@ -69,7 +70,7 @@ Scores.after.insert(function(userId, score) {
   }
 
   // update user
-  Meteor.users.update({_id: score.userId}, {$set: updateObj}, 
+  Meteor.users.update({_id: score.userId}, {$set: updateObj},
     function(err, res){
     console.log('************ user updated', err, res);
   });

@@ -5,7 +5,7 @@ Meteor.startup(function () {
   console.log('instantianting mailgun credentials');
   var options = {
     apiKey: 'key-28085066666d237635d3d1cefe098991',
-    domain: 'postmaster@app.cordvida.com.br'
+    domain: 'app.cordvida.com.br'
   }
   CordvidaMailgun = new Mailgun(options);
 

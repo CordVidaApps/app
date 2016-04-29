@@ -1,11 +1,11 @@
 
 Locations.after.insert(function(userId, location) {
-  console.log('%%%%%%%%%%%%%%% tracker analisys', location.userId, location);
+  console.log('%%%%%%%%%%%%%%% tracker analisys', location.userId, location.coords);
   var user = Meteor.users.findOne({_id: location.userId});
   if(!user) {
     throw new Meteor.Error(404, 'Error 404: User Not found');
   }
-  console.log('USER: ', user, user.profile.maternityLocation);
+  //console.log('USER: ', user, user.profile.maternityLocation);
 
   var rightNow = moment();
   var birthDate = moment(user.profile.estimateBornDate);
@@ -22,7 +22,7 @@ Locations.after.insert(function(userId, location) {
     g_dist = K*(1/dist);
   }
   var scoreValue = Math.pow(g_dist, exp);
-    
+
   console.log('************ DIST:', dist, ' G_DIST:', g_dist, 'EXP:', exp, 'SCORE VALUE:', scoreValue);
 
 
@@ -36,6 +36,3 @@ Locations.after.insert(function(userId, location) {
 
   return Scores.insert(score);
 });
-  
-  
-

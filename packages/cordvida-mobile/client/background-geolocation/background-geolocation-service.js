@@ -1,4 +1,4 @@
-angular.module('cordvida.mobile').factory('BackgroundLocation', 
+angular.module('cordvida.mobile').factory('BackgroundLocation',
   function($rootScope, $meteor, $window){
     return {
       init: function(){
@@ -32,7 +32,7 @@ angular.module('cordvida.mobile').factory('BackgroundLocation',
             distanceFilter: 25,
             disableElasticity: false, // <-- [iOS] Default is 'false'.  Set true to disable speed-based distanceFilter elasticity
             locationUpdateInterval: 5000,
-            minimumActivityRecognitionConfidence: 80,   // 0-100%.  Minimum activity-confidence for a state-change 
+            minimumActivityRecognitionConfidence: 80,   // 0-100%.  Minimum activity-confidence for a state-change
             fastestLocationUpdateInterval: 5000,
             activityRecognitionInterval: 10000,
             stopDetectionDelay: 1,   // [iOS] delay x minutes before entering stop-detection mode
@@ -40,10 +40,10 @@ angular.module('cordvida.mobile').factory('BackgroundLocation',
             activityType: 'AutomotiveNavigation',
 
             // Application config
-            debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
-            forceReloadOnLocationChange: false,  // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when a new location is recorded (WARNING: possibly distruptive to user) 
-            forceReloadOnMotionChange: false,    // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when device changes stationary-state (stationary->moving or vice-versa) --WARNING: possibly distruptive to user) 
-            forceReloadOnGeofence: false,        // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when a geofence crossing occurs --WARNING: possibly distruptive to user) 
+            debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
+            forceReloadOnLocationChange: false,  // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when a new location is recorded (WARNING: possibly distruptive to user)
+            forceReloadOnMotionChange: false,    // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when device changes stationary-state (stationary->moving or vice-versa) --WARNING: possibly distruptive to user)
+            forceReloadOnGeofence: false,        // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app when a geofence crossing occurs --WARNING: possibly distruptive to user)
             stopOnTerminate: false,              // <-- Don't stop tracking when user closes app.
             startOnBoot: true,                   // <-- [Android] Auto start background-service in headless mode when device is powered-up.
 

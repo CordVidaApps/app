@@ -17,10 +17,10 @@ Package.onUse(function(api) {
   api.use('angular:angular-material');
   api.use('planettraining:material-design-icons');
   api.use('less');
- 
+
   api.addFiles([
     'client/lib/module.js',
-
+    'client/routes.js',
     'client/styles/main.less',
 
     'client/utils/compare-to.component.js',
@@ -34,14 +34,14 @@ Package.onUse(function(api) {
     'client/users/user-item/user-item.html',
     'client/users/user-details/user-details.component.js',
     'client/users/user-details/user-details.html',
-    
+
     'client/users/reset-password/reset-password.component.js',
     'client/users/reset-password/reset-password.html',
     'client/users/reset-password/styles/reset-password.less',
-    
+
     'client/users/reset-password/reset-password-success.component.js',
     'client/users/reset-password/reset-password-success.html',
-    
+
     'client/users/new-users/new-users.component.js',
     'client/users/new-users/new-users.html',
     'client/users/edit-user/edit-user.component.js',
@@ -49,7 +49,7 @@ Package.onUse(function(api) {
     'client/users/new-users/user-form.component.js',
     'client/users/new-users/user-form.html',
     'client/users/new-users/styles/new-users.less',
-    
+
     'client/users/styles/google-maps.css',
 
     'client/google-maps/google-maps.js',
@@ -60,7 +60,7 @@ Package.onUse(function(api) {
   ], 'web.browser');
 });
 
- 
+
 Package.onTest(function(api) {
   api.use('tinytest');
   api.use('cordvida-browser');

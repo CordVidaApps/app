@@ -1,4 +1,4 @@
-angular.module('cordvida').config(function ($urlRouterProvider, $stateProvider, $locationProvider) {
+angular.module('cordvida.browser').config(function ($urlRouterProvider, $stateProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
@@ -20,10 +20,8 @@ angular.module('cordvida').config(function ($urlRouterProvider, $stateProvider, 
       resolve: {
         currentUser: ($q) => {
           console.log('%%%%%%%%%%% RESOLVE FUNCTION');
-          
             return $q.resolve();
         }
-
       }
     })
     .state('enroll-account', {
@@ -38,32 +36,6 @@ angular.module('cordvida').config(function ($urlRouterProvider, $stateProvider, 
       url: '/password-reset-success',
       template: '<reset-password-success></reset-password-success>',
     })
-    .state('login', {
-      url: '/login',
-      template: '<login></login>'
-    })
-    .state('info', {
-      url: '/info',
-      template: '<info></info>',
-      resolve: {
-        currentUser: ($q) => {
-          console.log('%%%%%%%%%%% RESOLVE FUNCTION');
-          if (Meteor.userId() == null) {
-            return $q.reject('AUTH_REQUIRED');
-          }
-          else {
-            return $q.resolve();
-          }
-        }
-      }
-    });
 
-  $urlRouterProvider.otherwise("/info");
-})
-.run(function ($rootScope, $state) {
-  $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-    if (error === 'AUTH_REQUIRED') {
-      $state.go('login');
-    }
-  });
+  $urlRouterProvider.otherwise("/users");
 });

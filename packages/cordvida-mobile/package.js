@@ -21,7 +21,7 @@ Package.onUse(function(api) {
     'client/lib/module.js',
 
     'client/styles/main.less',
-
+    'client/routes.js',
     'client/google-maps/google-maps-service.js',
     'client/google-maps/connectivity-service.js',
 

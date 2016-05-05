@@ -23,7 +23,8 @@ $stateProvider
   })
   .state('terms-of-service', {
     url: '/terms-of-service',
-    template: '<terms-of-service></terms-of-service>',
+    templateUrl: '/packages/cordvida-mobile/client/terms-of-service/terms-of-service.html',
+    controller: 'TermsOfServiceCtrl',
   });
 
 $urlRouterProvider.otherwise("/info");

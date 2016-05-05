@@ -16,7 +16,7 @@ angular.module("cordvida.mobile").directive('info', function() {
 
       this.remainingDays = () => {
         if(!this.user) return;
-        var rightNow = moment();
+        var rightNow = moment().startOf('day');
         var birthDate = moment(this.user.profile.estimateBornDate);
         var difference = birthDate.diff(rightNow, 'days');
         if(difference < 0) return 0;

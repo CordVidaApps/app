@@ -30,7 +30,7 @@
   "appName": "cordvida",
 
   // Location of app (local directory)
-  "app": "/Users/plraphael/workspace/freelancer-projects/cordvida",
+  "app": "/home/plraphael/workspace/freelancer-projects/cordvida",
 
   // Configure environment
   "env": {

@@ -1,0 +1,339 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8"> <!-- utf-8 works for most cases -->
+	<meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+	<title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+	<!-- Web Font / @font-face : BEGIN -->
+	<!-- NOTE: If web fonts are not required, lines 9 - 26 can be safely removed. -->
+
+	<!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+	<!--[if mso]>
+		<style>
+			* {
+				font-family: sans-serif !important;
+			}
+		</style>
+	<![endif]-->
+
+	<!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+	<!--[if !mso]><!-->
+		<!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+	<!--<![endif]-->
+
+	<!-- Web Font / @font-face : END -->
+
+  	<!-- CSS Reset -->
+    <style type="text/css">
+
+		/* What it does: Remove spaces around the email design added by some email clients. */
+		/* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+        html,
+        body {
+	        margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What is does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin:0 !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            Margin: 0 auto !important;
+        }
+        table table table {
+            table-layout: auto;
+        }
+
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        img {
+            -ms-interpolation-mode:bicubic;
+        }
+
+        /* What it does: Overrides styles added when Yahoo's auto-senses a link. */
+        .yshortcuts a {
+            border-bottom: none !important;
+        }
+
+        /* What it does: A work-around for iOS meddling in triggered links. */
+        .mobile-link--footer a,
+        a[x-apple-data-detectors] {
+            color:inherit !important;
+            text-decoration: underline !important;
+        }
+
+    </style>
+
+    <!-- Progressive Enhancements -->
+    <style>
+
+        /* What it does: Hover styles for buttons */
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+        .button-td:hover,
+        .button-a:hover {
+            background: #555555 !important;
+            border-color: #555555 !important;
+        }
+
+    </style>
+
+</head>
+<body width="100%" height="100%" bgcolor="#ffffff" style="Margin: 0;">
+<table cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" bgcolor="#ffffff" style="border-collapse:collapse;"><tr><td valign="top">
+    <center style="width: 100%;">
+
+        <!-- Visually Hidden Preheader Text : BEGIN -->
+        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
+            (Optional) This text will appear in the inbox preview, but not the email body.
+        </div>
+        <!-- Visually Hidden Preheader Text : END -->
+
+        <!--
+            Set the email width. Defined in two places:
+            1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 600px.
+            2. MSO tags for Desktop Windows Outlook enforce a 600px width.
+        -->
+        <div style="max-width: 600px; margin: auto;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table cellspacing="0" cellpadding="0" border="0" width="600" align="center">
+            <tr>
+            <td>
+            <![endif]-->
+
+            <!-- Email Header : BEGIN -->
+            <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;">
+				<tr>
+					<td style="padding: 20px 0; text-align: center">
+            <img src="http://app.cordvida.com.br/images/logo_cordvida.jpg" width="120" height="132" alt="CordVida" border="0">
+					</td>
+				</tr>
+            </table>
+            <!-- Email Header : END -->
+
+            <!-- Email Body : BEGIN -->
+            <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="100%" style="max-width: 600px;">
+
+                <!-- Hero Image, Flush : BEGIN
+                <tr>
+					<td>
+						<img src="http://placehold.it/600x300" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px;">
+					</td>
+                </tr>
+                 Hero Image, Flush : END -->
+
+                <!-- 1 Column Text + Button : BEGIN -->
+                <tr>
+                    <td>
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        	<tr>
+                            <td style="padding: 40px; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
+                                Bem-vindo ao Aplicativo da CordVida. Para começar a usar o aplicativo, siga os passos a seguir:
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding: 0px 40px; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
+                                <p style="text-align: center; font-size: 24px;">Passo 1: Cadastre a sua senha</p>
+                                Seu login é {{email}}. Para cadastrar sua senha, clique em {{url}}.
+                                <br>
+                                Este método garante que somente você terá acesso a sua senha, garantindo sua segurança.
+                                <br>
+                            </td>
+								          </tr>
+                          <tr>
+                            <td style="padding: 20px 40px; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
+                                <p style="text-align: center; font-size: 24px;">Passo 2: Baixe o App</p>
+                                O aplicativo está disponivel tanto para Android quanto para iOS. Para baixar, clique nas imagens abaixo.
+                                <br>
+                            </td>
+								          </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 1 Column Text + Button : BEGIN -->
+
+                <!-- 2 Even Columns : BEGIN -->
+                <tr>
+                    <td bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%" style="padding-bottom: 40px">
+                        <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:560px;">
+                            <tr>
+                                <td align="center" valign="top" width="50%">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                        <tr>
+                                            <td style="text-align: center; padding: 0 10px;">
+                                                <a href="https://play.google.com/apps/testing/com.cordvida.app" target="_blank">
+                                                  <img src="http://app.cordvida.com.br/images/GooglePlay.png" width="200" height="86" style="border: 0;width: 100%;max-width: 200px;" class="center-on-narrow">
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="center" valign="top" width="50%">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                        <tr>
+                                            <td style="text-align: center; padding: 0 10px;">
+                                              <a href="https://itunes.apple.com/us/app/cordvida-app/id1087388890?ls=1&mt=8" target="_blank">
+                                                <img src="http://app.cordvida.com.br/images/AppStore.png" width="200" height="86" style="border: 0;width: 100%;max-width: 200px;" class="center-on-narrow">
+                                              </a>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+                <!-- Two Even Columns : END -->
+
+            </table>
+            <!-- Email Body : END -->
+
+            <!-- Email Footer : BEGIN -->
+            <!-- Footer Bel Cordvida -->
+            <table align="center" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt; border-collapse:collapse !important; font-family:Century Gothic, Arial, Helvetica, sans-serif !important">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                            <table cellpadding="0" cellspacing="0" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt; border-collapse:collapse !important">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" valign="top" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                            <p style="margin: 0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%">
+                                                <a href="http://www.cordvida.com.br/new/" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%" data-hs-link-id="0">
+                                                    <img alt="" style="vertical-align:bottom; -ms-interpolation-mode:bicubic; margin:5px 10px;" src="http://cordvida.com.br/new/emkt/2015/assinatura/images/logo_cordvida.jpg" width="110">
+                                                </a>
+                                            </p>
+                                        </td>
+                                        <td valign="top" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt;  padding-top: 25px;">
+                                            <table width="100%" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt; border-collapse:collapse !important;">
+                                                <tbody>
+                                                    <!--
+                                                    <tr>
+                                                        <td valign="top" height="24" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                                            <p style="margin: 0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%">
+                                                                <span style="font-size:18px; margin-bottom:10px;color:#a53b3f;"><strong>Guilherme Bifi</strong>
+                                                                </span>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    -->
+                                                    <tr>
+                                                        <td valign="top" height="18" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                                            <p style="margin: 0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; font-size:12px;color:#a53b3f;"><strong>Referência em armazenamento de células-tronco</strong>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top" height="18" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                                            <p style="margin: 0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; font-size:12px">
+                                                                0800 707-2673
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top" height="18" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                                            <p style="margin: 0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; font-size:12px">
+                                                                11 3094-2673 | 11 2199-2673 (Grande São Paulo)
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top" height="18" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                                            <p style="margin: 0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; font-size:12px">
+                                                                <a href="http://www.cordvida.com.br" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#A53B3F; text-decoration:none" data-hs-link-id="0">
+                                                                    www.cordvida.com.br
+                                                                </a>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                                            <a href="http://www.cordvida.com.br/blog/" title="Blog CordVida" target="_blank" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; text-decoration: none;" data-hs-link-id="0">
+                                                                <img alt="Blog CordVida" src="http://cordvida.com.br/new/emkt/2015/assinatura/images/blog-icone.jpg" style="max-width:28px; vertical-align:bottom; -ms-interpolation-mode:bicubic">
+                                                            </a>
+                                                            <a href="https://twitter.com/cordvida" title="Twitter" target="_blank" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; text-decoration: none;" data-hs-link-id="0">
+                                                                <img alt="Twitter" src="http://cordvida.com.br/new/emkt/2015/assinatura/images/twitter-icone.jpg" style="max-width:28px; vertical-align:bottom; -ms-interpolation-mode:bicubic">
+                                                            </a>
+                                                            <a href="https://www.facebook.com/cordvida.celulastronco" title="Facebook" target="_blank" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; text-decoration: none;" data-hs-link-id="0">
+                                                                <img alt="Facebook" src="http://cordvida.com.br/new/emkt/2015/assinatura/images/facebook-icone.jpg" style="max-width:28px; vertical-align:bottom; -ms-interpolation-mode:bicubic">
+                                                            </a>
+                                                            <a href="https://instagram.com/cordvida" title="Instagram" target="_blank" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; text-decoration: none;" data-hs-link-id="0">
+                                                                <img alt="Instagram" src="http://cordvida.com.br/new/emkt/2015/assinatura/images/instagram-icone.jpg" style="max-width:28px; vertical-align:bottom; -ms-interpolation-mode:bicubic">
+                                                            </a>
+                                                            <a href="https://www.youtube.com/cordvida" title="Youtube" target="_blank" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; text-decoration: none;" data-hs-link-id="0">
+                                                                <img alt="Youtube" src="http://cordvida.com.br/new/emkt/2015/assinatura/images/youtube-icone.jpg" style="max-width:28px; vertical-align:bottom; -ms-interpolation-mode:bicubic">
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr valign="bottom">
+                        <td width="500" height="30px" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                            <p style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; font-size:10px; margin:0">
+                                Certificada pela AABB - American Association of Blood Banks
+                            </p>
+                        </td>
+                        <td width="100" height="30px" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                            <p style="margin: 0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%">
+                                <img alt="" src="http://www.cordvida.com.br/new/images/cordvida/accredited.png" width="100" style="vertical-align:bottom; -ms-interpolation-mode:bicubic">
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td colspan="2" height="10" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                            <p style="margin: 0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0">
+                                <img alt="" src="http://cordvida.com.br/new/emkt/2015/relatorio_cel/imagens/barra-colorida-email.jpg" width="600" height="6" style="vertical-align:top; -ms-interpolation-mode:bicubic">
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Email Footer : END -->
+
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </div>
+    </center>
+</td></tr></table>
+</body>
+</html>

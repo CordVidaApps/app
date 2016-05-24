@@ -9,7 +9,7 @@ App.info({
   id: 'com.cordvida.app',
   name: 'CordVida',
   description: 'Aplicativo da CordVida.',
-  version: "0.0.13"
+  version: "0.0.14"
 });
 
 // Set PhoneGap/Cordova preferences

@@ -1,6 +1,6 @@
 Meteor.startup(function () {
 
-  process.env.MAIL_URL = "smtp://admin@app.cordvida.com.br:supcord123@smtp.mailgun.org:587";
+  process.env.MAIL_URL = "smtp://postmaster@app.cordvida.com.br:supcord123@smtp.mailgun.org:587";
 
   console.log('instantianting mailgun credentials');
   var options = {

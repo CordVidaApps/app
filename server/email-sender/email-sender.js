@@ -47,14 +47,9 @@ Meteor.methods({
       newStatus = 'urgência';
     }
 
-    var emailData = {
-      oldStatus: oldStatus,
-      newStatus: newStatus,
-    };
-
     console.log('----------------> sending email to: ', user.emails[0].address);
 
-    process.env.MAIL_URL = "smtp://postmaster@app.cordvida.com.br:0c5d8205541df93e00a26ce04c2ec145@smtp.mailgun.org:587";
+    process.env.MAIL_URL = "smtp://postmaster@app.cordvida.com.br:supcord123@smtp.mailgun.org:587";
 
     var res = CordvidaMailgun.send({
       to: user.emails[0].address,
@@ -64,5 +59,8 @@ Meteor.methods({
     });
 
     console.log('EMAIL RESPONSE:', res);
-  }
+  },
+
+
+  
 });

@@ -49,6 +49,7 @@ angular.module('cordvida.mobile').factory('BackgroundLocation',
 
             // HTTP / SQLite config
             url: 'http://app.cordvida.com.br/sendLocations',
+            //url: 'http://localhost:3000/sendLocations',
             method: 'POST',
             batchSync: false,       // <-- [Default: false] Set true to sync locations to server in a single HTTP request.
             autoSync: true,         // <-- [Default: true] Set true to sync each location to server as it arrives.

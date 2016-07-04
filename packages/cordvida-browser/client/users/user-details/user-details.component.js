@@ -83,7 +83,7 @@ angular.module('cordvida.browser').directive('userDetails', function() {
           console.log('google maps iniciado com sucesso', res);
           $scope.mapsEnabled = true;
           $scope.initMap($scope.userLat(), $scope.userLng(), 14);
-        }, 
+        },
         (err) => {
           console.log('erro init google maps', err);
         }

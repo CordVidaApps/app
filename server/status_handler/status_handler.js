@@ -72,22 +72,8 @@ Scores.after.insert(function(userId, score) {
   // update user
   let updatedUser = Meteor.users.update({_id: score.userId}, {$set: updateObj});
 
-  console.log('prev and next status ---->', user.profile.status, updateObj.profile.status);
-  //Meteor.call('sendStatusChangedEmail', userId, user.profile.status, updateObj.profile.status);
-});
-
-
-Meteor.users.after.update(function (userId, doc, fieldNames, modifier, options) {
-  console.log('$$$$$$$$$$$$$ AFTER USER UPDATE HOOK', userId, fieldNames, doc.status, this.previous.status);
-
-  if(!_.contains(fieldNames, 'profile')) return;
-
-  if(this.previous.profile.status === 'urgency') return;
-
-  if(doc.profile.status === 'urgency') {
-    console.log("%%%%%%%%%%%%%%%%%%%%%%% email");
-
-    Meteor.call('sendStatusChangedEmail', doc._id, this.previous.profile.status, doc.profile.status);
+  console.log('prev and next status ---->', user.profile.status, updateObj['profile.status']);
+  if(updateObj['profile.status'] === 'urgency'){
+    Meteor.call('sendStatusChangedEmail', score.userId, user.profile.status, updateObj['profile.status']);
   }
-
 });

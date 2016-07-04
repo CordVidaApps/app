@@ -1,6 +1,6 @@
 Scores.after.insert(function(userId, score) {
   console.log('AFTER SCORE INSERT HOOK', score.userId, score);
-  var user = Meteor.users.findOne({_id: score.userId});
+  let user = Meteor.users.findOne({_id: score.userId});
   if(!user) {
     throw new Meteor.Error(404, 'User Not found');
   }
@@ -12,14 +12,14 @@ Scores.after.insert(function(userId, score) {
 
   // if user signalled a recent false alarm, nothing needs to be done
   if(user.falseAlarmTime) {
-    var diff = moment().diff(moment(user.falseAlarmTime), 'hours');
+    let diff = moment().diff(moment(user.falseAlarmTime), 'hours');
     if(diff <= 6) return;
   }
 
   // calculate aggregated score
-  var aggregatedScore = 0;
-  var timeThreshold = moment().subtract(3, 'hours').toDate();
-  var scores = Scores.find(
+  let aggregatedScore = 0;
+  let timeThreshold = moment().subtract(3, 'hours').toDate();
+  let scores = Scores.find(
     {
       userId: score.userId,
       createdAt: { $gt: timeThreshold }
@@ -42,11 +42,11 @@ Scores.after.insert(function(userId, score) {
   console.log('#########################################################################');
 
   // change status if aggregatedScore is bigger than thresholds
-  var updateObj = {
+  let updateObj = {
     aggregatedScore: aggregatedScore
   }
-  var ATTENTION_THRESHOLD = 500;
-  var URGENCY_THRESHOLD = 1500;
+  let ATTENTION_THRESHOLD = 500;
+  let URGENCY_THRESHOLD = 1500;
 
   if(aggregatedScore < ATTENTION_THRESHOLD) {
     _.extend(updateObj, {
@@ -54,7 +54,7 @@ Scores.after.insert(function(userId, score) {
     });
   }
 
-  if(aggregatedScore > ATTENTION_THRESHOLD && aggregatedScore < URGENCY_THRESHOLD) {
+  if(aggregatedScore >= ATTENTION_THRESHOLD && aggregatedScore < URGENCY_THRESHOLD) {
     console.log('******** ATTENTION STATUS');
     _.extend(updateObj, {
       'profile.status': 'attention',
@@ -70,10 +70,10 @@ Scores.after.insert(function(userId, score) {
   }
 
   // update user
-  Meteor.users.update({_id: score.userId}, {$set: updateObj},
-    function(err, res){
-    console.log('************ user updated', err, res);
-  });
+  let updatedUser = Meteor.users.update({_id: score.userId}, {$set: updateObj});
+
+  console.log('prev and next status ---->', user.profile.status, updateObj.profile.status);
+  //Meteor.call('sendStatusChangedEmail', userId, user.profile.status, updateObj.profile.status);
 });
 
 

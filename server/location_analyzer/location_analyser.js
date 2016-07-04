@@ -1,32 +1,32 @@
 
 Locations.after.insert(function(userId, location) {
   console.log('%%%%%%%%%%%%%%% tracker analisys', location.userId, location.coords);
-  var user = Meteor.users.findOne({_id: location.userId});
+  let user = Meteor.users.findOne({_id: location.userId});
   if(!user) {
     throw new Meteor.Error(404, 'Error 404: User Not found');
   }
   //console.log('USER: ', user, user.profile.maternityLocation);
 
-  var rightNow = moment();
-  var birthDate = moment(user.profile.estimateBornDate);
-  var remainingDays = birthDate.diff(rightNow, 'days');
-  var exp = ((280 - remainingDays)/280 + 1);
+  let rightNow = moment();
+  let birthDate = moment(user.profile.estimateBornDate);
+  let remainingDays = birthDate.diff(rightNow, 'days');
+  let exp = ((280 - remainingDays)/280 + 1);
 
   console.log('********* ABOUT TO CALCULATE DISTANCE');
-  var dist = geolib.getDistance(user.profile.maternityLocation, location.center);
-  var g_dist;
+  let dist = geolib.getDistance(user.profile.maternityLocation, location.center);
+  let g_dist;
   if(dist > 1000) {
     g_dist = 0;
   } else {
-    var K = 1000;
+    let K = 1000;
     g_dist = K*(1/dist);
   }
-  var scoreValue = Math.pow(g_dist, exp);
+  let scoreValue = Math.pow(g_dist, exp);
 
   console.log('************ DIST:', dist, ' G_DIST:', g_dist, 'EXP:', exp, 'SCORE VALUE:', scoreValue);
 
 
-  var score = {
+  let score = {
     userId: location.userId,
     scoreValue: scoreValue,
     distance: dist,

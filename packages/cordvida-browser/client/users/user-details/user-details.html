@@ -1,4 +1,4 @@
-<md-content layout="column" class="normal-page">
+<div layout="column" class="normal-page">
   
   <div layout layout-align="center" class="users-list-header">
     <p flex="30">Nome</p>
@@ -9,38 +9,43 @@
   </div>
   <md-divider></md-divider>
     
-  <user-item user="userDetails.user"></user-item>
+  <user-item user="user"></user-item>
   
   <div layout="row">
     <span flex></span>
     <md-button ui-sref="users">Voltar para tela de usuarios</md-button>
   </div>
 
-</md-content>
+</div>
 
-<md-content layout="row" layout-align="start" layout-fill layout-padding>
-  <md-content layout-fill layout-padding flex>
+<div layout="row" layout-align="start" layout-fill layout-padding>
+
+
+  <md-content flex="50" layout="column">
+
     <h4>Scores</h4>
-    <md-content layout="row" layout-align="start center" layout-fill flex>
-      <span flex="10">#</span>
-      <span flex="20">Score Value</span>
-      <span flex="20">Distancia</span>
+
+    <div layout="row">
+      <span flex="20">#</span>
+      <span flex="40">Distancia</span>
+      <span flex="40">Score</span>
+    </div>
+
+    <md-content>
+      <div layout="row" ng-repeat="score in scores">
+        <span flex="20">{{$index}}</span>
+        <span flex="40">{{score.distance}} metros</span>
+        <span flex="40">{{score.scoreValue.toFixed(0)}}</span>
+      </div>
     </md-content>
-    <md-content ng-repeat="score in userDetails.scores"  layout="row" layout-align="start center" layout-padding flex>
-      <span flex="10">{{$index}}</span>
-      <span flex="20">{{score.scoreValue.toFixed(0)}}</span>
-      <span flex="20">{{score.distance}} metros</span>
-    </md-content>
+
   </md-content>
-  <md-content class="google-map-container" ng-if="userDetails.user">
-    <ui-gmap-google-map center="userDetails.map.center"
-      zoom="userDetails.map.zoom">
-      <ui-gmap-marker coords="userDetails.userMaternityLocation()"
-        idkey="userDetails.userId()">
-      </ui-gmap-marker>
-      <ui-gmap-markers models="userDetails.locations" coords="'center'"
-                       fit="true" idkey="'_id'" icon="'icon'">
-      </ui-gmap-markers>
-    </ui-gmap-google-map>
+
+
+
+  <md-content class="google-map-container" flex="50">
+    <div ni-if="mapsEnabled" id="new-user-map" data-tap-disabled="true">
+    </div>
   </md-content>
-</md-content>
+
+</div>

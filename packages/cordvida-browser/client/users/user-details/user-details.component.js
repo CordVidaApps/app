@@ -3,10 +3,10 @@ angular.module('cordvida.browser').directive('userDetails', function() {
     restrict: 'E',
     templateUrl: '/packages/cordvida-browser/client/users/user-details/user-details.html',
     controllerAs: 'userDetails',
-    controller: function($scope, $stateParams, $reactive) {
-      $reactive(this).attach($scope);
-
-      this.helpers({
+    controller: function($scope, $stateParams, GoogleMaps) {
+      $scope.mapsEnabled = false;
+      
+      $scope.helpers({
         user: () => {
           return Meteor.users.findOne({ _id: $stateParams.userId });
         },
@@ -14,7 +14,9 @@ angular.module('cordvida.browser').directive('userDetails', function() {
           var timeThreshold = moment().subtract(3, 'hours').toDate();
           return Locations.find({
             userId: $stateParams.userId,
-            date: { $gt: timeThreshold }
+            date: { $gt: timeThreshold },
+          }, {
+            limit: 20,
           });
         },
         scores: () => {
@@ -22,52 +24,70 @@ angular.module('cordvida.browser').directive('userDetails', function() {
           return Scores.find({
             userId: $stateParams.userId,
             createdAt: { $gt: timeThreshold }
+          }, {
+            limit: 20,
           });
         },
       });
 
-      this.subscribe('users');
-      this.subscribe('userLocations', () => {
+      $scope.subscribe('users');
+      $scope.subscribe('userLocations', () => {
         return [ $stateParams.userId ];
       });
-      this.subscribe('userScores', () => {
+      $scope.subscribe('userScores', () => {
         return [ $stateParams.userId ];
       });
 
-      this.userLat = () => {
-        if(this.user) {
-          return this.user.profile.maternityLocation.latitude;
+      $scope.userLat = () => {
+        if($scope.user) {
+          return $scope.user.profile.maternityLocation.latitude;
         }
         return -15.7833;
       }
 
-      this.userLng = () => {
-        if(this.user) {
-          return this.user.profile.maternityLocation.longitude;
+      $scope.userLng = () => {
+        if($scope.user) {
+          return $scope.user.profile.maternityLocation.longitude;
         }
         return -47.8667;
       }
 
-      this.userMaternityLocation = () => {
-        return this.user && this.user.profile.maternityLocation;
+      $scope.userMaternityLocation = () => {
+        return $scope.user && $scope.user.profile.maternityLocation;
       };
 
-      this.userId = () => {
-        return this.user && this.user._id;
+      $scope.userId = () => {
+        return $scope.user && $scope.user._id;
       }
 
-      this.map = {
-        center: {
-          latitude: this.userLat(),
-          longitude: this.userLng(),
-        },
-        zoom: 14,
-        events: {},
-        marker: {
-          options: { draggable: false },
-          events: {}
+      $scope.initMap = (lat, lng, zoom) => {
+        var latLng = new google.maps.LatLng(lat, lng);
+        var mapOptions = {
+          center: latLng,
+          zoom: zoom,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        $scope.map = new google.maps.Map(document.getElementById("new-user-map"), mapOptions);
+        google.maps.event.addListenerOnce($scope.map, 'idle', () => {
+          var marker = new google.maps.Marker({
+            map: $scope.map,
+            animation: google.maps.Animation.DROP,
+            position: latLng,
+            options: { draggable: false },
+          });
+        });
+      }
+
+      GoogleMaps.init().then(
+        (res) => {
+          console.log('google maps iniciado com sucesso', res);
+          $scope.mapsEnabled = true;
+          $scope.initMap($scope.userLat(), $scope.userLng(), 14);
+        }, 
+        (err) => {
+          console.log('erro init google maps', err);
         }
-      };
+      );
     }
   }
 });

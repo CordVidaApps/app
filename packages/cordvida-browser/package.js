@@ -30,6 +30,8 @@ Package.onUse(function(api) {
 
     'client/users/users-list/users-list.component.js',
     'client/users/users-list/users-list.html',
+    'client/users/users-list/users-list.less',
+    
     'client/users/user-item/user-item.component.js',
     'client/users/user-item/user-item.html',
     'client/users/user-details/user-details.component.js',

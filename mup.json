@@ -6,7 +6,10 @@
       "username": "ubuntu",
       //"password": "password"
       // or pem file (ssh based authentication)
-      "pem": "~/.ssh/cordvida-app.pem"
+      "pem": "~/.ssh/cordvida-app.pem",
+      "env": {
+        "MAIL_URL": "smtp://postmaster@mg.pedro.com:f70fce34197f2c1462e00d3d187e93bc@smtp.mailgun.org:587"
+      }
     }
   ],
 

@@ -1,25 +1,29 @@
 
-<div flex layout="row">
+<div layout="column">
   
-  <md-content flex id="content">
+  <div>
     <md-button ng-click="usersList.goToNewUserPage()">
       Criar Usuario
     </md-button>
+  </div> 
+
+  <div>
     <md-list>
-      <md-list-item>
-        <div layout="row" layout-align="start center" layout-padding flex>
-          <span flex="20">Nome</span>
-          <span flex="10">Status</span>
-          <span flex="10">Data de Nasc. Prevista</span>
-          <span flex="10">Tempo da Ultima Local.</span>
-        </div>
-        <md-divider></md-divider>
+
+      <md-list-item layout layout-align="center" class="users-list-header">
+        <p flex="30">Nome</p>
+        <p flex="15">Status</p>
+        <p flex="15">Data de Nasc. Prevista</p>
+        <p flex="15">Tempo da Ultima Local.</p>
+        <p flex="25">Ações</p>
       </md-list-item>
-      <md-list-item ng-if="usersList.users" ng-repeat="user in usersList.users">
-        <user-item user="user" layout="row" layout-align="start center" layout-padding flex>
-        </user-item>
-        <md-divider></md-divider>
-      </md-list-item>
+      <md-divider></md-divider>
+      
+
+      <user-item ng-if="usersList.users" ng-repeat="user in usersList.users" user="user">
+      </user-item>
+    
     </md-list>
-  </md-content>
+  </div>
+
 </div>

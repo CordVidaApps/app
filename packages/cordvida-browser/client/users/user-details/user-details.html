@@ -1,17 +1,22 @@
-<md-content>
-  <md-content layout="row" layout-align="start center" layout-padding flex>
-    <h5 flex="10">Nome</h5>
-    <h5 flex="10">Status</h5>
-    <h5 flex="10">Data de Nasc. Prevista</h5>
-    <h5 flex="10">Score Agregado</h5>
-    <h5 flex="10">Tempo da Ultima Local.</h5>
-  </md-content>
-
-  <md-content layout="row" layout-align="start center" layout-padding flex>
-    <user-item user="userDetails.user" layout="row" layout-align="start center" layout-padding flex></user-item>
-  </md-content>
+<md-content layout="column" class="normal-page">
   
-  <md-button ui-sref="users">Voltar para tela de usuarios</md-button>
+  <div layout layout-align="center" class="users-list-header">
+    <p flex="30">Nome</p>
+    <p flex="15">Status</p>
+    <p flex="15">Data de Nasc. Prevista</p>
+    <p flex="15">Tempo da Ultima Local.</p>
+    <p flex="25">Ações</p>
+  </div>
+  <md-divider></md-divider>
+    
+  <user-item user="userDetails.user"></user-item>
+  
+  <div layout="row">
+    <span flex></span>
+    <md-button ui-sref="users">Voltar para tela de usuarios</md-button>
+  </div>
+
+</md-content>
 
 <md-content layout="row" layout-align="start" layout-fill layout-padding>
   <md-content layout-fill layout-padding flex>
@@ -38,5 +43,4 @@
       </ui-gmap-markers>
     </ui-gmap-google-map>
   </md-content>
-</md-content>
 </md-content>

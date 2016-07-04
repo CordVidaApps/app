@@ -47,11 +47,14 @@ Meteor.methods({
       newStatus = 'urgência';
     }
 
+    var emailData = {
+      oldStatus: oldStatus,
+      newStatus: newStatus,
+    }
+
     console.log('----------------> sending email to: ', user.emails[0].address);
 
-    process.env.MAIL_URL = "smtp://postmaster@app.cordvida.com.br:supcord123@smtp.mailgun.org:587";
-
-    var res = CordvidaMailgun.send({
+    var res = Email.send({
       to: user.emails[0].address,
       from: Accounts.emailTemplates.from,
       subject:  "CordVida - Alerta de Mudança de Status",

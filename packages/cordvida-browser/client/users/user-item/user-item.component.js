@@ -6,7 +6,7 @@ angular.module('cordvida.browser').directive('userItem', function() {
     scope: {
       user: '='
     },
-    controller: function($scope, $reactive, $state) {
+    controller: function($scope, $reactive, $state, $mdDialog) {
       $reactive(this).attach($scope);
  
       this.helpers({
@@ -15,39 +15,59 @@ angular.module('cordvida.browser').directive('userItem', function() {
         }
       });
 
-      this.goToUser = (user) => {
+      this.goToUser = () => {
         $state.go('userDetails', {userId: this.user._id});
       };
 
-      this.goToEditpage = (user) => {
+      this.goToEditPage = () => {
         console.log('going to edit user page');
         $state.go('editUser', {userId: this.user._id});
       }
+
+      this.resendWelcomeEmail = (ev) => {
+        console.log('resending e-mail');
+        Meteor.call('resendWelcomeEmail', this.user._id, (error) => {
+          if (error) {
+            console.error('Oops, unable to resend email!');
+          } else {
+            console.log('email sent')
+            this.showAlert(ev);
+          }
+        });
+      }
+
+      this.showAlert = (ev) => {
+        // Appending dialog to document.body to cover sidenav in docs app
+        // Modal dialogs should fully cover application
+        // to prevent interaction outside of dialog
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('E-mail Enviado!')
+            .textContent('E-mail para cadastro de senha enviado com sucesso.')
+            .ok('Voltar')
+            .targetEvent(ev)
+        );
+      };
 
       this.userStatus = () => {
         return this.user && this.user.profile.status;
       }
 
       this.isStatusNormal = () => {
-        return this.user && this.user.profile.status === 'normal';
+        if(!this.user) return;
+        return this.user.profile.status === 'normal';
       }
 
-      this.hasConfirmationTime = () => {
-        if(!this.user) return false;
-        if(!this.user.profile.confirmationTime) return false;
-        return true;
+      this.isStatusAttention = () => {
+        if(!this.user) return;
+        return this.user.profile.status === 'attention';
       }
 
-      this.setFalseAlarm = () => {
-        Meteor.call('falseAlarm', this.user._id);
-      }
-
-      this.confirmUrgency = () => {
-        Meteor.call('confirmUrgency', this.user._id);
-      }
-
-      this.cancelUrgencyConfirmation = () => {
-        Meteor.call('cancelUrgencyConfirmation', this.user._id);
+      this.isStatusUrgency = () => {
+        if(!this.user) return;
+        return this.user.profile.status === 'urgency';
       }
 
       this.estimateBornDate = () => {
@@ -55,7 +75,7 @@ angular.module('cordvida.browser').directive('userItem', function() {
       };
 
       this.timeFromLastLocation = () => {
-        if(!this.user || this.user.lastLocationTime) return 'never';
+        if(!this.user || !this.user.lastLocationTime) return '---';
         return moment(this.user.lastLocationTime).fromNow();
       }
 

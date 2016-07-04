@@ -8,14 +8,24 @@ angular.module('cordvida.browser').config(
     $mdThemingProvider.theme('default')
       .primaryPalette('brown')
       .accentPalette('red');
-    /*$mdIconProvider
-      .defaultIconSet("./assets/svg/avatars.svg", 128)
-      .icon("menu"       , "./assets/svg/menu.svg"        , 24)
-      .icon("share"      , "./assets/svg/share.svg"       , 24)
-      .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
-      .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
-      .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
-      .icon("phone"      , "./assets/svg/phone.svg"       , 512);*/
+    
+    const iconPath =  '/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/';
+ 
+    $mdIconProvider
+      .iconSet('social',
+        iconPath + 'svg-sprite-social.svg')
+      .iconSet('action',
+        iconPath + 'svg-sprite-action.svg')
+      .iconSet('communication',
+        iconPath + 'svg-sprite-communication.svg')
+      .iconSet('content',
+        iconPath + 'svg-sprite-content.svg')
+      .iconSet('toggle',
+        iconPath + 'svg-sprite-toggle.svg')
+      .iconSet('navigation',
+        iconPath + 'svg-sprite-navigation.svg')
+      .iconSet('image',
+        iconPath + 'svg-sprite-image.svg');
 
     $mdDateLocaleProvider.formatDate = (date) => {
       return moment(date).format('DD/MM/YYYY');

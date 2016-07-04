@@ -1,27 +1,36 @@
-<md-button ng-click="userItem.goToUser(user)" flex="20">
-  <span>{{userItem.user.profile.name}}</span>
-</md-button>
+<md-list-item layout layout-align="center center" class="users-list-item">
+
+  <md-button ng-click="userItem.goToUser()" flex="30" class="go-to-user-button">
+    <span>{{userItem.user.profile.name}}</span>
+  </md-button>
+    
+  <div flex="15">
+    <div class="circle" ng-class="{ 'circle-green': userItem.isStatusNormal(),
+                                    'circle-yellow': userItem.isStatusAttention(),
+                                    'circle-red': userItem.isStatusUrgency() }">
+    </div>
+    {{userItem.userStatus()}}
+  </div>
   
-<span flex="10">{{userItem.userStatus()}}</span>
-<span flex="10">{{userItem.estimateBornDate()}}</span>
-<span flex="10">{{userItem.aggregatedScore()}}</span>
-<span flex="10">{{userItem.timeFromLastLocation()}}</span>
+  
+  <span flex="15">{{userItem.estimateBornDate()}}</span>
+  
+  <span flex="15">{{userItem.timeFromLastLocation()}}</span>
 
-<md-button ng-if="userItem.isStatusNormal()" ng-click="userItem.goToEditpage(user)" flex="20">
-  <span>Editar Usuário</span>
-</md-button>
+  <div flex="25">
+    <md-menu>
+      <!-- Trigger element is a md-button with an icon -->
+      <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
+        <md-icon md-svg-icon="action:ic_list_24px"></md-icon>
+      </md-button>
+      <md-menu-content width="4">
+        <md-menu-item><md-button ng-click="userItem.goToUser()">Ver Detalhes</md-button></md-menu-item>
+        <md-menu-item><md-button ng-click="userItem.goToEditPage()">Editar Usuario</md-button></md-menu-item>
+        <md-menu-item><md-button ng-click="userItem.resendWelcomeEmail($event)">Re-enviar E-mail</md-button></md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div>
 
-<md-button ng-if="!userItem.isStatusNormal() && !userItem.hasConfirmationTime()" 
-  ng-click="userItem.setFalseAlarm()" flex="20">
-  <span>Alarme Falso</span>
-</md-button>
+</md-list-item>
 
-<md-button ng-if="!userItem.isStatusNormal() && !userItem.hasConfirmationTime()" 
-  ng-click="userItem.confirmUrgency()" flex="20">
-  <span>Confirmar Urgencia</span>
-</md-button>
-
-<md-button ng-if="!userItem.isStatusNormal() && userItem.hasConfirmationTime()" 
-  ng-click="userItem.cancelUrgencyConfirmation()" flex="20">
-  <span>Cancelar Confirmação</span>
-</md-button>
+<md-divider></md-divider>

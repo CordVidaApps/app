@@ -17,7 +17,8 @@
   
   <span flex="15">{{userItem.timeFromLastLocation()}}</span>
 
-  <div flex="25">
+  <!-- normal status menu -->
+  <div flex="25" ng-if="!userItem.isStatusUrgency()">
     <md-menu>
       <!-- Trigger element is a md-button with an icon -->
       <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
@@ -30,6 +31,13 @@
         <md-menu-item><md-button ng-click="userItem.resendWelcomeEmail($event)">Re-enviar E-mail</md-button></md-menu-item>
       </md-menu-content>
     </md-menu>
+  </div>
+
+  <!-- urgent status menu -->
+  <div flex="25" ng-if="userItem.isStatusUrgency()">
+    <md-button ng-click="userItem.showFalseAlarmPrompt()" class="go-to-user-button">
+      <span>Alarme Falso</span>
+    </md-button>
   </div>
 
 </md-list-item>

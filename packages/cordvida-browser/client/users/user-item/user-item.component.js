@@ -8,7 +8,7 @@ angular.module('cordvida.browser').directive('userItem', function() {
     },
     controller: function($scope, $reactive, $state, $mdDialog) {
       $reactive(this).attach($scope);
- 
+    
       this.helpers({
         user: function () {
           return $scope.user;
@@ -24,6 +24,11 @@ angular.module('cordvida.browser').directive('userItem', function() {
         $state.go('editUser', {userId: this.user._id});
       }
 
+      this.removeUser = () => {
+        console.log('remove user', $scope);
+        this.showRemovePrompt();
+      }
+
       this.resendWelcomeEmail = (ev) => {
         console.log('resending e-mail');
         Meteor.call('resendWelcomeEmail', this.user._id, (error) => {
@@ -36,7 +41,7 @@ angular.module('cordvida.browser').directive('userItem', function() {
         });
       }
 
-      this.showAlert = (ev) => {
+      this.showAlert = () => {
         // Appending dialog to document.body to cover sidenav in docs app
         // Modal dialogs should fully cover application
         // to prevent interaction outside of dialog
@@ -44,12 +49,48 @@ angular.module('cordvida.browser').directive('userItem', function() {
           $mdDialog.alert()
             .parent(angular.element(document.querySelector('#popupContainer')))
             .clickOutsideToClose(true)
-            .title('E-mail Enviado!')
-            .textContent('E-mail para cadastro de senha enviado com sucesso.')
+            .title('Usuario removido')
+            .textContent('')
             .ok('Voltar')
-            .targetEvent(ev)
         );
       };
+
+      this.showRemovePrompt = () => {
+        confirmDialog = $mdDialog.confirm()
+          .title('Atenção')
+          .textContent(`Confirme para excluir ${$scope.user.profile.name} da lista de usuarios.`)
+          .cancel('Cancelar')
+          .ok('Remover');
+        $mdDialog
+          .show( confirmDialog )
+          .then(
+            () => {
+              console.log('success');
+              confirmDialog = undefined;
+              Meteor.call('removeUser', this.user._id, (error) => {
+                if (error) {
+                  console.error('error - show error alert');
+                  $mdDialog.show(
+                  $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#popupContainer')))
+                    .clickOutsideToClose(true)
+                    .title('Ocorreu um erro')
+                    .textContent('Não foi possivel remover o usuario. Tente novamente. Se o erro persistir entre em contato com o suporte.')
+                    .ok('Voltar')
+                  );
+                } else {
+                  console.log('email sent')
+                  this.showAlert();
+                }
+              });
+            },
+            () => {
+              console.log('cancelled');
+              confirmDialog = undefined;
+            }
+          );
+      
+    }
 
       this.userStatus = () => {
         return this.user && this.user.profile.status;

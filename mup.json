@@ -8,7 +8,7 @@
       // or pem file (ssh based authentication)
       "pem": "~/.ssh/cordvida-app.pem",
       "env": {
-        "MAIL_URL": "smtp://postmaster@app3.cordvida.com.br:d9be062a98e55d376ad0bb9545cff957@smtp.mailgun.org:587"
+        "MAIL_URL": "smtp://postmaster@app4.cordvida.com.br:92de80abf880839bf995f47928a575e3@smtp.mailgun.org:587"
       }
     }
   ],

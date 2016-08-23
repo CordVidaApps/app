@@ -4,7 +4,7 @@ angular.module('cordvida.browser').config(function ($urlRouterProvider, $statePr
   $stateProvider
     .state('users', {
       url: '/users',
-      template: '<users-list></users-list>',
+      template: '<users></users>',
     })
     .state('userDetails', {
       url: '/users/:userId',

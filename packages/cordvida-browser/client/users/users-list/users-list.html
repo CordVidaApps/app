@@ -1,29 +1,29 @@
 
-<div layout="column">
-  
-  <div>
-    <md-button ng-click="usersList.goToNewUserPage()">
-      Criar Usuario
-    </md-button>
-  </div> 
+<div class="users-list" layout="column">
 
-  <div>
-    <md-list>
+  <md-list class="list">
 
-      <md-list-item layout layout-align="center" class="users-list-header">
-        <p flex="30">Nome</p>
-        <p flex="15">Status</p>
-        <p flex="15">Data de Nasc. Prevista</p>
-        <p flex="15">Tempo da Ultima Local.</p>
-        <p flex="25">Ações</p>
-      </md-list-item>
-      <md-divider></md-divider>
-      
+    <md-list-item layout layout-align="center" class="users-list-header">
+      <p flex="1">{{urgentOnly ? 'Urgencias' : 'Todos'}}</p>
+    </md-list-item>
+    <md-divider></md-divider>
 
-      <user-item ng-if="usersList.users" ng-repeat="user in usersList.users" user="user">
-      </user-item>
+    <md-list-item layout layout-align="center" class="users-list-columns">
+      <p flex="30">Nome</p>
+      <p flex="15">Status</p>
+      <p flex="15">Data de Nasc. Prevista</p>
+      <p flex="15">Tempo da Ultima Local.</p>
+      <p flex="25">Ações</p>
+    </md-list-item>
+    <md-divider></md-divider>
     
-    </md-list>
-  </div>
+    <md-list-item ng-if="usersList.users.length === 0" layout layout-align="center" class="users-list-empty">
+      <p flex="1">Não há usuarios nesta lista.</p>
+    </md-list-item>
+
+    <user-item ng-if="usersList.users" ng-repeat="user in usersList.users" user="user">
+    </user-item>
+  
+  </md-list>
 
 </div>

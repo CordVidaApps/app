@@ -28,6 +28,10 @@ Package.onUse(function(api) {
     'client/auth/login/login.component.js',
     'client/auth/login/login.html',
 
+    'client/users/users.component.js',
+    'client/users/users.html',
+    'client/users/users.less',
+
     'client/users/users-list/users-list.component.js',
     'client/users/users-list/users-list.html',
     'client/users/users-list/users-list.less',
